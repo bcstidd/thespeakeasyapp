@@ -11,13 +11,25 @@ def home(request):
 
 class PostList(ListView):
     model = Post
-    # context_object_name = 'posts'
-    # template_name = 'posts/index.html'
 
+class PostCreate(CreateView):
+    model = Post
+    fields = ['phrase', 'country_of_origin', 'native_language', 'date']
+
+    def form_valid(self, form):
+      form.instance.user = self.request.user
+      return super().form_valid(form)
 
 class PostDetail(DetailView):
     model = Post
 
+class PostUpdate(UpdateView):
+  model = Post
+  fields = ['phrase', 'country_of_origin', 'native_language', 'date']
+
+class PostDelete(DeleteView):
+  model = Post
+  success_url = '/posts'
 
 def signup(request):
   error_message = ''

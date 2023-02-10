@@ -13,8 +13,8 @@
         <p>Date: {{ post.date }}</p>
       </div>
       <div class="card-action">
-        <a href="#">Edit</a>
-        <a href="#">Delete</a>
+        <a href="{% url 'posts_update' post.id %}">Edit</a>
+        <a href="{% url 'posts_delete' post.id %}">Delete</a>
       </div>
     </div>
   </div>
