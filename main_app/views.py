@@ -11,8 +11,12 @@ def home(request):
 
 class PostList(ListView):
     model = Post
-    context_object_name = 'posts'
-    template_name = 'posts/index.html'
+    # context_object_name = 'posts'
+    # template_name = 'posts/index.html'
+
+
+class PostDetail(DetailView):
+    model = Post
 
 
 def signup(request):
