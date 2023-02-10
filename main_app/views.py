@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 def home(request):
@@ -12,7 +14,7 @@ def home(request):
 class PostList(ListView):
     model = Post
 
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['phrase', 'country_of_origin', 'native_language', 'date']
 
@@ -20,14 +22,14 @@ class PostCreate(CreateView):
       form.instance.user = self.request.user
       return super().form_valid(form)
 
-class PostDetail(DetailView):
+class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UpdateView):
   model = Post
   fields = ['phrase', 'country_of_origin', 'native_language', 'date']
 
-class PostDelete(DeleteView):
+class PostDelete(LoginRequiredMixin, DeleteView):
   model = Post
   success_url = '/posts'
 
