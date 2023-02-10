@@ -8,6 +8,6 @@ def home(request):
   return render(request, 'home.html')
 
 class PostList(ListView):
-    model = PostList
+    model = Post
     context_object_name = 'posts'
     template_name = 'posts/index.html'
