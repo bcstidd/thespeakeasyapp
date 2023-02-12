@@ -1,15 +1,57 @@
+
+/*Save for profile background---
+/* background-image: url("https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMzfHxnYXRzYnklMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=60"); */
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: #FFAE2C;
+    background-size: cover;
+    width: 100%;
+
   }
   
   main {
     flex: 1 0 auto;
+    /* border: 3px solid black; */
+    margin: 30px;
+
+    
   }
   
   footer.page-footer {
-    padding-top: 0;
-    text-align: right;
-  }
+    height: 25px;
+    text-align: left;
+    color: white;
+    background-color: #2D6373;
+  } 
   
+
+header {
+  background-color: #0094B1;
+  width: 100%;
+  
+}
+header.img {
+  margin: 0 auto;
+}
+
+  h1 {
+  margin-left: 10px;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #2D6373;
+
+}
+
+a {
+  color: white;
+  font-size: larger;
+}
+
+.home-get-started {
+  background-color: white:
+}
