@@ -6,6 +6,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+
 body {
     display: flex;
     min-height: 100vh;
@@ -35,7 +37,7 @@ body {
   
 
 header {
-  background-color: #0094B1;
+  color: white;  background-color: #0094B1;
   width: 100%;
   
 }
@@ -55,20 +57,15 @@ header.img {
 
 }
 
-a {
-  color: white;
-  font-size: larger;
-}
 
 /* #home-bg {
   background-image: url("https://i.imgur.com/QdLZSsr.jpg");
   background-size: cover;
   background-position: center;
 } */
-.carousel-item-map {
-  height: 200px;
-  width: 200px;
-}
+/* .carousel{
+  margin: auto;
+} */
 
 #signup {
   background-image: url("https://i.imgur.com/lWPEWDV.png");
@@ -76,11 +73,10 @@ a {
 .home-page{
   margin-top:  -5px;
 }
-.carousel-inner {
-   width: 50%;
-   margin: 0 auto;
- }
-.carousel-item img {
-    width: 100%;
+/* .carousel-inner {
+  width: 50%;
+  max-height:400px;
 }
-       
+.carousel-item img {
+  width: 100%;
+} */
