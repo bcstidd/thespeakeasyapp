@@ -1,6 +1,11 @@
 
 /*Save for profile background---
 /* background-image: url("https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMzfHxnYXRzYnklMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=60"); */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
     display: flex;
     min-height: 100vh;
@@ -8,12 +13,14 @@ body {
     background-color: #FFAE2C;
     background-size: cover;
     width: 100%;
+    margin-bottom: 5px;
   }
   
   main {
     flex: 1 0 auto;
     /* border: 3px solid black; */
-    margin: 30px;
+    margin:0;
+    padding: 0;
 
     
   }
@@ -23,6 +30,7 @@ body {
     text-align: left;
     color: white;
     background-color: #2D6373;
+    margin-bottom: -5px;
   } 
   
 
@@ -33,6 +41,7 @@ header {
 }
 header.img {
   margin: 0 auto;
+  width: 100%;
 }
 
   h1 {
@@ -51,12 +60,15 @@ a {
   font-size: larger;
 }
 
-/* #home-bg {
+#home-bg {
   background-image: url("https://i.imgur.com/QdLZSsr.jpg");
   background-size: cover;
   background-position: center;
-} */
+}
 
 #signup {
   background-image: url("https://i.imgur.com/lWPEWDV.png");
+}
+.home-page{
+  margin-top:  -5px;
 }
