@@ -13,8 +13,6 @@
 </head>
 <body>
   <header class="navbar-fixed">
-    
-      <img class="homeimg" src="https://i.imgur.com/kqFSGWu.png">
       <nav>
         <div class="nav-wrapper">
           <a href="#">About</a>
@@ -25,14 +23,13 @@
               {% else %}
               <a href="{% url 'signup' %}">Sign Up</a>
               <a href="{% url 'login' %}">Log In</a>
-              <a href="{% url 'signup'%}">Get Started</a>
+             
               {% endif %}
             </div>
-          </div>
         </nav>
       </header>
-        
-        <main class="container">
+
+  <main class="container">
     {% block content %}
     
     {% endblock %}
