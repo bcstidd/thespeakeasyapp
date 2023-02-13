@@ -51,11 +51,11 @@ a {
   font-size: larger;
 }
 
-.home-body {
+/* #home-bg {
   background-image: url("https://i.imgur.com/QdLZSsr.jpg");
   background-size: cover;
-  height: 50vh;
-}
+  background-position: center;
+} */
 
 #signup {
   background-image: url("https://i.imgur.com/lWPEWDV.png");
