@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Post, Profile, User
+from .models import Post
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -29,15 +29,14 @@ class PostCreate(LoginRequiredMixin, CreateView):
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
-    profile_model = Profile
-    print("printing profile model")
-    print(profile_model.objects.first().id)
-    print(request.user.profile)
+    # profile_model = Profile
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['profile_model'] = self.profile_model.objects.all()
-        return context
+    # def get_context_data(self, **kwargs):
+    #     print("printing profile model")
+    #     print(self.request.user.profile.id)
+    #     context = super().get_context_data(**kwargs)
+    #     context['profile_id'] = self.request.user.profile.id
+    #     return context
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
