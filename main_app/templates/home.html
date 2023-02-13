@@ -1,12 +1,14 @@
+<div class="home-page"> 
+<header> <img src="https://i.imgur.com/sFIYO2X.png"></header>
+</div>
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>Learn a new language while you make friends!</h1>
-
-    <h2><input</h2>
-    <form class="home-get-started" method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" class="btn" value="Get Started">
-      </form>
+<body id="home-body">
+  <img src="https://i.imgur.com/RswOpRh.jpg"
+      <form class="home-get-started" method="POST" action="{% url 'signup' %}">
+          {% csrf_token %}
+         {{ form.as_p }}
+          <input type="submit" class="btn" value="Get Started">
+        </form>
+      </body>
 {% endblock %}
