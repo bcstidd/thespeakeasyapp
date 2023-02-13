@@ -60,10 +60,14 @@ a {
   font-size: larger;
 }
 
-#home-bg {
+/* #home-bg {
   background-image: url("https://i.imgur.com/QdLZSsr.jpg");
   background-size: cover;
   background-position: center;
+} */
+.carousel-item-map {
+  height: 200px;
+  width: 200px;
 }
 
 #signup {
@@ -72,3 +76,11 @@ a {
 .home-page{
   margin-top:  -5px;
 }
+.carousel-inner {
+   width: 50%;
+   margin: 0 auto;
+ }
+.carousel-item img {
+    width: 100%;
+}
+       
