@@ -22,14 +22,17 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_joined = models.DateTimeField()
     primary_language = models.CharField(
-        max_length=2,
+        max_length=20,
         choices=LANGUAGES,
         default=LANGUAGES[2][1],
         null=True
     )
 
+    def __str__(self):
+        return f'{self.id}:{self.primary_language}'
+
     def get_absolute_url(self):
-        return reverse('detail', kwargs={'post_id': self.id})
+        return reverse('home')
 
 
 class Post(models.Model):
