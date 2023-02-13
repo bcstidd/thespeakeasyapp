@@ -24,8 +24,12 @@ class Profile(models.Model):
     primary_language = models.CharField(
         max_length=2,
         choices=LANGUAGES,
-        default=LANGUAGES[0][0]
+        default=LANGUAGES[2][1],
+        null=True
     )
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'post_id': self.id})
 
 
 class Post(models.Model):
