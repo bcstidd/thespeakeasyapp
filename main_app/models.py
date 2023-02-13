@@ -3,36 +3,35 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
+# LANGUAGES = (
+#     ('ZH', '中文'),  # Mandarin Chinese
+#     ('ES', 'Español'),  # Spanish
+#     ('EN', 'English'),  # English
+#     ('HI', 'हिन्दी-उर्दू'),  # Hindi-Urdu
+#     ('AR', 'العربية'),  # Arabic
+#     ('BN', 'বাংলা'),  # Bengali
+#     ('PT', 'Português'),  # Portuguese
+#     ('RU', 'Русский'),  # Russian
+#     ('FR', 'Français'),  # French
+#     ('HE', 'עברית'),  # Hebrew
+# )
 
-LANGUAGES = (
-    ('ZH', '中文'),  # Mandarin Chinese
-    ('ES', 'Español'),  # Spanish
-    ('EN', 'English'),  # English
-    ('HI', 'हिन्दी-उर्दू'),  # Hindi-Urdu
-    ('AR', 'العربية'),  # Arabic
-    ('BN', 'বাংলা'),  # Bengali
-    ('PT', 'Português'),  # Portuguese
-    ('RU', 'Русский'),  # Russian
-    ('FR', 'Français'),  # French
-    ('HE', 'עברית'),  # Hebrew
-)
 
+# class Profile(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     date_joined = models.DateTimeField() # we do not need this line
+#     primary_language = models.CharField(
+#         max_length=20,
+#         choices=LANGUAGES,
+#         default=LANGUAGES[2][1],
+#         null=True
+#     )
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    date_joined = models.DateTimeField()
-    primary_language = models.CharField(
-        max_length=20,
-        choices=LANGUAGES,
-        default=LANGUAGES[2][1],
-        null=True
-    )
+#     def __str__(self):
+#         return f'{self.id}:{self.primary_language}'
 
-    def __str__(self):
-        return f'{self.id}:{self.primary_language}'
-
-    def get_absolute_url(self):
-        return reverse('home')
+#     def get_absolute_url(self):
+#         return reverse('home')
 
 
 class Post(models.Model):
@@ -40,7 +39,7 @@ class Post(models.Model):
     date = models.DateTimeField()
     country_of_origin = models.CharField(max_length=200)
     native_language = models.CharField(max_length=200)
-    profiles = models.ManyToManyField(Profile)
+    # profiles = models.ManyToManyField(Profile)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_absolute_url(self):
