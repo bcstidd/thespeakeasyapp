@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from userprofile.views import add_favs
+# from userprofile.views import add_favs
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -10,6 +10,7 @@ urlpatterns = [
     path('posts/<int:pk>/update/', views.PostUpdate.as_view(), name='posts_update'),
     path('posts/<int:pk>/delete/', views.PostDelete.as_view(), name='posts_delete'),
     path('accounts/signup/', views.signup, name='signup'),
-    path('add-favs/', add_favs, name='add_favs'),
+    path('posts/<int:post_id>/add_favs/<int:profile_id>/',
+         views.add_favs, name='add_favs'),
 
 ]

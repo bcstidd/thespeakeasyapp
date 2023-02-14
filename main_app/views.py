@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Post
+from .models import Post, User
 from userprofile.models import Profile
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -27,7 +27,12 @@ class PostCreate(LoginRequiredMixin, CreateView):
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
-    # profile_model = Profile
+    user_model = User
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile_id'] = self.request.user.profile.id
+        return context
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
@@ -55,9 +60,10 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-# def add_favs(request, profile_id, post_id):
-#     profile = Profile.objects.get(id=profile_id)
-#     post = Post.objects.get(id=post_id)
-#     profile.favorite_posts.add(post)
-#     profile.save()
-#     return redirect('details')
+def add_favs(request, profile_id, post_id):
+    # profile = Profile.objects.get(id=profile_id)
+    profile = Profile.objects.get(id=profile_id)
+    post = Post.objects.get(id=post_id)
+    profile.favorite_posts.add(post)
+    profile.save()
+    return redirect('home')
