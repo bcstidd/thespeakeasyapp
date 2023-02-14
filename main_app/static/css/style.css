@@ -1,6 +1,4 @@
 
-/*Save for profile background---
-/* background-image: url("https://images.unsplash.com/photo-1513346940221-6f673d962e97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMzfHxnYXRzYnklMjBiYWNrZ3JvdW5kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=2000&q=60"); */
 * {
   margin: 0;
   padding: 0;
@@ -58,14 +56,41 @@ header.img {
 }
 
 
-/* #home-bg {
-  background-image: url("https://i.imgur.com/QdLZSsr.jpg");
+.home-page {
+  background-color: #FFAE2C;
   background-size: cover;
   background-position: center;
-} */
-/* .carousel{
+}
+.carousel{
   margin: auto;
-} */
+  align-self: center;
+}
+
+
+
+  .get-started-button {
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 25px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: gray;
+    transition: all 0.2s ease-in-out;
+  }
+  .get-started-button:hover {
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+  }
+
 
 #signup {
   background-image: url("https://i.imgur.com/lWPEWDV.png");
@@ -73,10 +98,14 @@ header.img {
 .home-page{
   margin-top:  -5px;
 }
-/* .carousel-inner {
+.carousel-inner {
   width: 50%;
-  max-height:400px;
+  max-height:400px; 
 }
 .carousel-item img {
-  width: 100%;
-} */
+  background-color: #FFAE2C;
+}
+#home-body {
+  background-color: #FFAE2C;
+}
+
