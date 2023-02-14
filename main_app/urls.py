@@ -3,7 +3,8 @@ from . import views
 # from userprofile.views import add_favs
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    # path('', views.home, name='home'),
+    path('', views.HomeView.as_view(), name='home'),
     path('posts/', views.PostList.as_view(), name='index'),
     path('posts/create/', views.PostCreate.as_view(), name='posts_create'),
     path('posts/<int:pk>/', views.PostDetail.as_view(), name='posts_detail'),
@@ -12,5 +13,6 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('posts/<int:post_id>/add_favs/<int:profile_id>/',
          views.add_favs, name='add_favs'),
+    path('profiles/<int:pk>', views.ProfileDetail.as_view(), name='profiles_detail')
 
 ]

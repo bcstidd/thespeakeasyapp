@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
+# from django.views import TemplateView
 from .models import Post, User
 from userprofile.models import Profile
 from django.contrib.auth import login
@@ -11,13 +12,25 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 
-def home(request):
-    return render(request, 'home.html')
+# def home(request):
+#     return render(request, 'home.html')
 
+class HomeView(TemplateView):
+  user_model = User
+  model = Profile
 
+  def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      context['profile_id'] = self.request.user.profile.id
+      print("Profile below ---------------------------------")
+      print(self.request.user.profile.id)
+      print(context['profile_id'])
+      return context
+  
+  template_name = 'template_home.html'
+  
 class PostList(ListView):
     model = Post
-
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
@@ -61,9 +74,12 @@ def signup(request):
 
 
 def add_favs(request, profile_id, post_id):
-    # profile = Profile.objects.get(id=profile_id)
     profile = Profile.objects.get(id=profile_id)
     post = Post.objects.get(id=post_id)
     profile.favorite_posts.add(post)
     profile.save()
     return redirect('home')
+
+
+class ProfileDetail(LoginRequiredMixin, DetailView):
+    model = Profile
