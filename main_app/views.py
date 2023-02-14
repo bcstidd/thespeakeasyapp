@@ -28,7 +28,7 @@ class HomeView(TemplateView):
             print(context['profile_id'])
         return context
 
-    template_name = 'template_home.html'
+    template_name = 'home.html'
 
 
 class PostList(ListView):
