@@ -55,9 +55,9 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-def add_favs(request, profile_id, post_id):
-    profile = Profile.objects.get(id=profile_id)
-    post = Post.objects.get(id=post_id)
-    profile.favorite_posts.add(post)
-    profile.save()
-    return redirect('details')
+# def add_favs(request, profile_id, post_id):
+#     profile = Profile.objects.get(id=profile_id)
+#     post = Post.objects.get(id=post_id)
+#     profile.favorite_posts.add(post)
+#     profile.save()
+#     return redirect('details')
