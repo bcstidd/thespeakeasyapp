@@ -23,12 +23,9 @@ class HomeView(TemplateView):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             context['profile_id'] = self.request.user.profile.id
-            print("Profile below ---------------------------------")
-            print(self.request.user.profile.id)
-            print(context['profile_id'])
         return context
 
-    template_name = 'template_home.html'
+    template_name = 'home.html'
 
 
 class PostList(ListView):
