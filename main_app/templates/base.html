@@ -15,7 +15,8 @@
         <div class="nav-wrapper">
           <a href="#">About</a>
             {% if user.is_authenticated %}
-            <a href="{% url 'posts_create' %}">Add A Post</a>
+              <a href="/profiles/{{profile_id}}">Profile</a>
+              <a href="{% url 'posts_create' %}">Add A Post</a>
               <a href="{% url 'index' %}">View Posts</a>
               <a href="{% url 'logout' %}">Log Out</a>
               <a href="{% url 'home' %}">Home</a>
