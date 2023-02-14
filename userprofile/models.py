@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from main_app.models import Post
 # Create your models here.
 LANGUAGES = (
     ('ZH', '中文'),  # Mandarin Chinese
@@ -25,7 +25,9 @@ class Profile(models.Model):
         choices=LANGUAGES,
         default=LANGUAGES[2][1],
         null=True
-    )
+    ),
+    favorite_posts = models.ManyToManyField(
+        Post, related_name='favorited_by', blank=True)
 
     def __str__(self):
         return f'{self.id}:{self.primary_language}'
