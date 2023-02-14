@@ -16,21 +16,24 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 #     return render(request, 'home.html')
 
 class HomeView(TemplateView):
-  user_model = User
-  model = Profile
+    user_model = User
+    model = Profile
 
-  def get_context_data(self, **kwargs):
-      context = super().get_context_data(**kwargs)
-      context['profile_id'] = self.request.user.profile.id
-      print("Profile below ---------------------------------")
-      print(self.request.user.profile.id)
-      print(context['profile_id'])
-      return context
-  
-  template_name = 'template_home.html'
-  
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['profile_id'] = self.request.user.profile.id
+            print("Profile below ---------------------------------")
+            print(self.request.user.profile.id)
+            print(context['profile_id'])
+        return context
+
+    template_name = 'template_home.html'
+
+
 class PostList(ListView):
     model = Post
+
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
