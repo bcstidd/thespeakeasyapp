@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 from .models import Post
+from userprofile.models import Profile
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -20,23 +21,13 @@ class PostList(ListView):
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['phrase', 'country_of_origin', 'native_language', 'date']
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
+    fields = ['phrase', 'country_of_origin',
+              'native_language', 'date']
 
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
     # profile_model = Profile
-
-    # def get_context_data(self, **kwargs):
-    #     print("printing profile model")
-    #     print(self.request.user.profile.id)
-    #     context = super().get_context_data(**kwargs)
-    #     context['profile_id'] = self.request.user.profile.id
-    #     return context
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
@@ -64,7 +55,9 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
-@login_required
-def add_favs(request, post_id, profile_id):
-    Post.objects.get(id=post_id).profiles.add(profile_id)
-    return redirect('detail', post_id=post_id)
+def add_favs(request, profile_id, post_id):
+    profile = Profile.objects.get(id=profile_id)
+    post = Post.objects.get(id=post_id)
+    profile.favorite_posts.add(post)
+    profile.save()
+    return redirect('details')

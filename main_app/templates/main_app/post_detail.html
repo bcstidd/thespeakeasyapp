@@ -15,7 +15,7 @@
       <div class="card-action">
         <a href="{% url 'posts_update' post.id %}">Edit</a>
         <a href="{% url 'posts_delete' post.id %}">Delete</a>
-        <form action="{% url 'add_favs' post.id profile_id %}" method="POST">
+        <form action="{% url 'add_favs' post.id profile.id %}" method="POST">
           {% csrf_token %}
           <button type="submit" class="btn">Add to Favorites</button>
         </form>

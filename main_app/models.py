@@ -3,6 +3,7 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
+
 # LANGUAGES = (
 #     ('ZH', '中文'),  # Mandarin Chinese
 #     ('ES', 'Español'),  # Spanish
