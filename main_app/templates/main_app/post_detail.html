@@ -15,7 +15,7 @@
       <div class="card-action">
         <a href="{% url 'posts_update' post.id %}">Edit</a>
         <a href="{% url 'posts_delete' post.id %}">Delete</a>
-        <a href="{% url 'add_favs' %}">Add to Favorites</a>
+        <a href="{% url 'add_favs' post.id profile_id %}">Add to Favorites</a>
 
         </form>
       </div>
