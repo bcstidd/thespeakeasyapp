@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
+
 {% block content %}
+<h1>{{ profile.user.username }}'s Profile</h1>
+<p>Primary Language: {{ profile.primary_language }}</p>
 
-<h1>Picture</h1>
-<p>Username: {{ profile.user.username }}</p>
-<p>Name: {{ profile.user.firstname }}</p>
-
+<h2>Favorite Posts:</h2>
+<ul>
+    {% for post in profile.favorite_posts.all %}
+    <li>{{ post.phrase }}</li>
+    {% empty %}
+    <li>No favorite posts yet.</li>
+    {% endfor %}
+</ul>
 {% endblock %}
