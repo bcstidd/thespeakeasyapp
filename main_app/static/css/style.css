@@ -34,11 +34,7 @@ body {
   } 
   
 
-header {
-  color: white;  background-color: #0094B1;
-  width: 100%;
-  
-}
+
 header.img {
   margin: 0 auto;
   width: 100%;
@@ -48,16 +44,11 @@ header.img {
   margin-left: 10px;
 }
 
-.nav-wrapper {
-  display: flex;
-  justify-content: space-evenly;
-  background-color: #2D6373;
 
-}
 
 
 .home-page {
-  background-color: #FFAE2C;
+  background-color:white;
   background-size: cover;
   background-position: center;
 }
@@ -66,16 +57,22 @@ header.img {
   align-self: center;
 }
 
-
+nav {
+  color: white;
+  background-color: #FCC771;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 
   .get-started-button {
     position: relative;
     margin-top: 20px;
     display: inline-block;
-    padding: 10px 20px;
-    background-color: white;
+    padding: 10px 20px; 
+    background-color:#2D6373;
     border: 1px solid gray;
-    border-radius: 25px;
+    border-radius: 25px; 
     box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
     font-size: 18px;
     font-weight: bold;
@@ -91,10 +88,6 @@ header.img {
     box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
   }
 
-
-#signup {
-  background-image: url("https://i.imgur.com/lWPEWDV.png");
-}
 .home-page{
   margin-top:  -5px;
 }
@@ -103,9 +96,83 @@ header.img {
   max-height:400px; 
 }
 .carousel-item img {
-  background-color: #FFAE2C;
+  background-color: white;
+  border: 2px solid black;
 }
 #home-body {
-  background-color: #FFAE2C;
+  background-color: white;
 }
 
+/* .navbar-fixed {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #FFAE2C;
+  align-items: center;
+} */
+
+.log {
+  display: flex;
+  padding: 20px;
+  position: sticky;
+  flex-wrap: wrap;
+  height: 200px;
+  width: 400px;
+  border: 3px solid black;
+  background-color: #2D6373;
+  color: white;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.inbtn {
+  justify-content: center;
+  align-self:center;
+  margin: 30px;
+  padding: 5px;
+  float: right;
+  border-radius: 5px;
+}
+
+a {
+  color: white !important;
+  font-size: larger;
+}
+
+p {
+  margin-top: 10px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2D6373;
+}
+
+label {
+  margin: 10px;
+}
+
+#_username {
+  margin: 10px;
+}
+
+.icon {
+  display: flex;
+  justify-content: flex-end;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-style:oblique;
+}
+
+nav a {
+  flex: 1;
+  text-align: center;
+  margin: 0px 50px 0px 50px;
+  
+ 
+}
