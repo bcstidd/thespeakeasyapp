@@ -108,13 +108,6 @@ nav {
   background-color: white;
 }
 
-/* .navbar-fixed {
-  display: flex;
-  justify-content: space-evenly;
-  background-color: #FFAE2C;
-  align-items: center;
-} */
-
 .log {
   display: flex;
   padding: 20px;
@@ -149,7 +142,7 @@ p {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #2D6373;
 }
@@ -167,31 +160,30 @@ label {
   justify-content: flex-end;
 }
 
+.sign {
+  display: grid;
+  justify-content: center;
+  height: 300px;
+  margin-right: 500px;
+}
+
+.sign>form {
+  height: 200px;
+  color: white;
+}
+
+.sign>form>p {
+  margin:30px;
+  justify-self: center;
+}
+
+.sign>form>ul {
+  margin: 10px 0px 0px 50px;
+}
+
 nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   font-style: oblique;
-}
-
-nav a {
-  flex: 1;
-  text-align: center;
-  margin: 0px 50px 0px 50px;
-
-
-}
-
-.profile {
-  display: flex;
-}
-
-.profile-info {
-  flex: 1;
-  padding-right: 20px;
-}
-
-.favorite-posts {
-  flex: 1;
-  padding-left: 20px;
 }
