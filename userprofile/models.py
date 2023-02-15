@@ -23,7 +23,7 @@ class Profile(models.Model):
     primary_language = models.CharField(
         max_length=20,
         choices=LANGUAGES,
-        default=LANGUAGES[2][1],
+        default=LANGUAGES[2][0],
         null=True
     ),
     favorite_posts = models.ManyToManyField(
