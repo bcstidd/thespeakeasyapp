@@ -20,7 +20,6 @@ class HomeView(TemplateView):
         return context
 
 
-
 class PostList(ListView):
     model = Post
 
