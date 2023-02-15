@@ -8,6 +8,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from googletrans import LANGUAGES, Translator
 
 
 class HomeView(TemplateView):
@@ -104,3 +105,27 @@ def add_favs(request, profile_id, post_id):
     profile.favorite_posts.add(post)
     profile.save()
     return redirect('home')
+
+def translate(request):
+    # Get the text to be translated from the request
+    text = request.GET.get('text', '')
+
+    # If text is empty or None, return an empty response
+    if not text:
+        return render(request, 'translate.html', {'languages': LANGUAGES})
+
+    # Get the source and destination languages from the request
+    source = request.GET.get('source', 'auto')
+    dest = request.GET.get('destination', 'en')
+
+    # Create a translator object
+    translator = Translator()
+
+    # Detect the language of the text
+    detected_language = translator.detect(text)
+
+    # Translate the text to the destination language
+    translation = translator.translate(text, src=source, dest=dest)
+
+    # Render the translation in a template
+    return render(request, 'translate.html', {'languages': LANGUAGES, 'translation': translation})
