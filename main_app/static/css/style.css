@@ -7,6 +7,7 @@
 
 
 body {
+<<<<<<< HEAD
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -36,6 +37,33 @@ body {
   
 
 
+=======
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #FFAE2C;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+main {
+  flex: 1 0 auto;
+  /* border: 3px solid black; */
+  margin: 0;
+  padding: 0;
+}
+
+footer.page-footer {
+  height: 25px;
+  text-align: left;
+  color: white;
+  background-color: #2D6373;
+  margin-bottom: -5px;
+  position: sticky
+}
+
+>>>>>>> main
 header.img {
   margin: 0 auto;
   width: 100%;
@@ -45,9 +73,6 @@ header.img {
   margin-left: 10px;
 }
 
-
-
-
 .home-page {
   background-color:white;
   background-size: cover;
@@ -56,6 +81,14 @@ header.img {
 .carousel{
   margin: auto;
   align-self: center;
+  max-height: fit-content;
+}
+
+#home-body>nav>a {
+ 
+  margin: 0px 10px 0px 10px;
+  width: 100%;
+  text-decoration: none;
 }
 
 nav {
@@ -66,6 +99,7 @@ nav {
   width: 100%;
 }
 
+<<<<<<< HEAD
   .get-started-button {
     position: relative;
     margin-top: 20px;
@@ -95,13 +129,31 @@ nav {
 .carousel-inner {
   width: 50%;
   max-height:400px; 
+=======
+.home-page {
+  margin-top: -5px;
+}
+
+.carousel-inner {
+  max-width: 85%;
+  max-height: 400px;
+>>>>>>> main
 }
 .carousel-item img {
-  background-color: white;
+  width: 100%;
+  background-color: #FFAE2C;
   border: 2px solid black;
 }
+<<<<<<< HEAD
+=======
+
+.carousel img {
+  width: 100%;
+}
+
+>>>>>>> main
 #home-body {
-  background-color: white;
+  background-color: #FFAE2C;
 }
 
 /* .navbar-fixed {
@@ -114,14 +166,13 @@ nav {
 .log {
   display: flex;
   padding: 20px;
-  position: sticky;
   flex-wrap: wrap;
   height: 200px;
   width: 400px;
   border: 3px solid black;
   background-color: #2D6373;
   color: white;
-  margin: 10px;
+  margin: 0 auto;
   border-radius: 10px;
 }
 
@@ -163,6 +214,34 @@ label {
   justify-content: flex-end;
 }
 
+<<<<<<< HEAD
+=======
+.sign {
+  display: flex;
+  justify-content: center;
+  height: 510px;
+  margin: 0px 500px 0px 50px;
+  width: 600px;
+  border: 2px solid white;
+  margin-bottom: none;
+}
+
+.sign>form {
+  height: 200px;
+  color: white;
+}
+
+.sign>form>p {
+  margin:30px;
+  justify-self: center;
+}
+
+.sign>form>ul {
+  background-color: #2D6373;
+  margin: 10px 0px 0px 50px;
+}
+
+>>>>>>> main
 nav {
   display: flex;
   justify-content: space-evenly;
