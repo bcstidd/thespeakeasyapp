@@ -18,6 +18,7 @@ LANGUAGES = (
     ('HE', 'עברית'),  # Hebrew
 )
 
+
 class Post(models.Model):
     phrase = models.TextField()
     date = models.DateTimeField()

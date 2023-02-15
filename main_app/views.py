@@ -1,9 +1,12 @@
+import uuid
+import boto3
+import os
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, TemplateView
 # from django.views import TemplateView
 from .models import Post, User
-from userprofile.models import Profile
+from userprofile.models import Profile, Photo
 from .forms import CommentForm, UserForm
 
 
@@ -111,3 +114,25 @@ def add_favs(request, profile_id, post_id):
     profile.favorite_posts.add(post)
     profile.save()
     return redirect('home')
+
+
+def add_photo(request, profile_id):
+    # photo-file will be the "name" attribute on the <input type="file">
+    photo_file = request.FILES.get('photo-file', None)
+    if photo_file:
+        s3 = boto3.client('s3')
+        # need a unique "key" for S3 / needs image file extension too
+        key = uuid.uuid4().hex[:6] + \
+            photo_file.name[photo_file.name.rfind('.'):]
+        # just in case something goes wrong
+        try:
+            bucket = os.environ['S3_BUCKET']
+            s3.upload_fileobj(photo_file, bucket, key)
+            # build the full url string
+            url = f"{os.environ['S3_BASE_URL']}{bucket}/{key}"
+            # we can assign to profile_id or profile (if you have a profile)
+            Photo.objects.create(url=url, profile_id=profile_id)
+        except Exception as e:
+            print('An error occurred uploading file to S3')
+            print(e)
+    return redirect('profile_detail', pk=profile_id)

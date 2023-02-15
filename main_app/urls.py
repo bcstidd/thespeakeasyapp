@@ -13,6 +13,8 @@ urlpatterns = [
     path('accounts/signup/', views.signup, name='signup'),
     path('posts/<int:post_id>/add_favs/<int:profile_id>/',
          views.add_favs, name='add_favs'),
-    path('profiles/<int:pk>', views.ProfileDetail.as_view(), name='profile_detail')
+    path('profiles/<int:pk>', views.ProfileDetail.as_view(), name='profile_detail'),
+    path('profiles/<int:pk>/add_photo/',
+         views.add_photo, name='add_photo'),
 
 ]
