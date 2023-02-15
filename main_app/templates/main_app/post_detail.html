@@ -7,7 +7,7 @@
   <div class="col s6 col-offset-3">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">Phrase: {{ post.phrase }}</span>
+        <span class="card-title">{{ post.phrase }}</span>
         <p>Country of Origin: {{ post.country_of_origin }}</p>
         <p>Native Language: {{ post.native_language }}</p>
         <p>Date: {{ post.date }}</p>
@@ -17,33 +17,7 @@
         <a href="{% url 'posts_delete' post.id %}">Delete</a>
         <a href="{% url 'add_favs' post.id profile_id %}">Add to Favorites</a>
 
-      </div><br>
-      <div class="create-comments">
-        <form action="" method="post">
-          <!-- Django requires the following for security purposes -->
-          {% csrf_token %}
-          <table>
-            <!-- Render the inputs inside of <tr>s & <td>s -->
-            {{ form.as_table }}
-          </table>
-          <input type="submit" value="Submit!" class="btn">
         </form>
-      </div>
-      <div class="view-comments">
-        <table>
-          <thead>
-            <tr><th>Date</th><th>Username</th><th>Comment</th></tr>
-          </thead>
-          <tbody>
-            {% for comment in post.comment_set.all %}
-              <tr>
-                <td>{{comment.date}}</td>
-                <td>{{comment.user.username}}</td>
-                <td>{{comment.comment}}</td>
-              </tr>
-            {% endfor %}
-          </tbody>
-          </table>
       </div>
     </div>
   </div>

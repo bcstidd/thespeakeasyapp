@@ -1,21 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="profile">
-    <div class="profile-info">
-        <h1>{{ profile.user.username }}'s Profile</h1>
-        <p>Primary Language: {{ profile.primary_language }}</p>
-    </div>
+<h1>{{ profile.user.username }}'s Profile</h1>
+<p>Primary Language: {{ profile.primary_language }}</p>
 
-    <div class="favorite-posts">
-        <h2>Favorite Posts:</h2>
-        <ul>
-            {% for post in profile.favorite_posts.all %}
-            <li>{{ post.phrase }}</li>
-            {% empty %}
-            <li>No favorite posts yet.</li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+<h2>Favorite Posts:</h2>
+<ul>
+    {% for post in profile.favorite_posts.all %}
+    <li>{{ post.phrase }}</li>
+    {% empty %}
+    <li>No favorite posts yet.</li>
+    {% endfor %}
+</ul>
 {% endblock %}
