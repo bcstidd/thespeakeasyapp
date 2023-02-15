@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, TemplateView
 # from django.views import TemplateView
 from .models import Post, User
 from userprofile.models import Profile
+from .forms import CommentForm, UserForm
+
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -78,18 +80,18 @@ class PostDelete(LoginRequiredMixin, DeleteView):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        user_form = UserForm(request.POST)
-        if user_form.is_valid():
-            user.email = user_form.cleaned_data['email']
-            user.first_name = user_form.cleaned_data['first_name']
-            user.last_name = user_form.cleaned_data['last_name']
-            user = user_form.save()
+        form = UserForm(request.POST)
+        if form.is_valid():
+            # user.email = form.cleaned_data['email']
+            # user.first_name = form.cleaned_data['first_name']
+            # user.last_name = form.cleaned_data['last_name']
+            user = form.save()
             login(request, user)
             return redirect('/')
         else:
             error_message = 'Invalid sign up - try again'
-    user_form = UserForm()
-    context = {'user_form': user_form, 'error_message': error_message}
+    form = UserForm()
+    context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
 
