@@ -16,23 +16,24 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 #     return render(request, 'home.html')
 
 class HomeView(TemplateView):
-    user_model = User
-    model = Profile
+    template_name = 'home.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             context['profile_id'] = self.request.user.profile.id
-            print("Profile below ---------------------------------")
-            print(self.request.user.profile.id)
-            print(context['profile_id'])
         return context
 
-    template_name = 'home.html'
 
 
 class PostList(ListView):
     model = Post
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['profile_id'] = self.request.user.profile.id
+        return context
 
 
 class PostCreate(LoginRequiredMixin, CreateView):
@@ -40,6 +41,11 @@ class PostCreate(LoginRequiredMixin, CreateView):
     fields = ['phrase', 'country_of_origin',
               'native_language', 'date']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['profile_id'] = self.request.user.profile.id
+        return context
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
@@ -55,10 +61,22 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
     fields = ['phrase', 'country_of_origin', 'native_language', 'date']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['profile_id'] = self.request.user.profile.id
+        return context
+
 
 class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = '/posts'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['profile_id'] = self.request.user.profile.id
+        return context
 
 
 def signup(request):
@@ -76,13 +94,19 @@ def signup(request):
     return render(request, 'registration/signup.html', context)
 
 
+class ProfileDetail(LoginRequiredMixin, DetailView):
+    model = Profile
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            context['profile_id'] = self.request.user.profile.id
+        return context
+
+
 def add_favs(request, profile_id, post_id):
     profile = Profile.objects.get(id=profile_id)
     post = Post.objects.get(id=post_id)
     profile.favorite_posts.add(post)
     profile.save()
     return redirect('home')
-
-
-class ProfileDetail(LoginRequiredMixin, DetailView):
-    model = Profile
