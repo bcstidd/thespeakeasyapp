@@ -192,3 +192,17 @@ nav a {
 #speaklogo {
   margin-left: 70px;
 }
+
+.profile {
+  display: flex;
+}
+
+.profile-info {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.favorite-posts {
+  flex: 1;
+  padding-left: 20px;
+}
