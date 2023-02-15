@@ -56,6 +56,7 @@ h1 {
 .carousel {
   margin: auto;
   align-self: center;
+  max-height: fit-content;
 }
 
 nav {
@@ -111,14 +112,13 @@ nav {
 .log {
   display: flex;
   padding: 20px;
-  position: sticky;
   flex-wrap: wrap;
   height: 200px;
   width: 400px;
   border: 3px solid black;
   background-color: #2D6373;
   color: white;
-  margin: 10px;
+  margin: 0 auto;
   border-radius: 10px;
 }
 
@@ -161,10 +161,13 @@ label {
 }
 
 .sign {
-  display: grid;
+  display: flex;
   justify-content: center;
-  height: 300px;
-  margin-right: 500px;
+  height: 510px;
+  margin: 0px 500px 0px 50px;
+  width: 600px;
+  border: 2px solid white;
+  margin-bottom: none;
 }
 
 .sign>form {
@@ -178,6 +181,7 @@ label {
 }
 
 .sign>form>ul {
+  background-color: #2D6373;
   margin: 10px 0px 0px 50px;
 }
 
