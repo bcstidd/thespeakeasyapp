@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpeakEasy</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="#" class="brand-logo center">SpeakEasy Translation Tool</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <form class="col s12" action="{% url 'translate' %}" method="get">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="text" type="text" class="validate" name="text">
+                        <label for="text">Enter text to translate:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="source" name="source">
+                            {% for code, name in languages.items %}
+                            <option value="{{ code }}">{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="source">Select source language:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="destination" name="destination">
+                            {% for code, name in languages.items %}
+                            <option value="{{ code }}">{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="destination">Select destination language:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light blue" type="submit" name="action">Translate
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% if translation %}
+        <div class="row">
+            <h2 class="col s12">Translation:</h2>
+            <p class="col s12">{{ translation.text }}</p>
+        </div>
+        {% endif %}
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+</body>
+</html>

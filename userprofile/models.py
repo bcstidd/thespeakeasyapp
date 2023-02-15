@@ -23,14 +23,14 @@ class Profile(models.Model):
     primary_language = models.CharField(
         max_length=20,
         choices=LANGUAGES,
-        default=LANGUAGES[2][0],
+        default=LANGUAGES[2][1],
         null=True
     ),
     favorite_posts = models.ManyToManyField(
         Post, related_name='favorited_by', blank=True)
 
     def __str__(self):
-        return f'{self.id}:{self.user.username}, {self.get_primary_language_display()}, {self.favorite_posts}'
+        return f'{self.id}:{self.user.username}: {self.favorite_posts}'
 
 
 @receiver(post_save, sender=User)
@@ -42,3 +42,11 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
+
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'Photo for profile_id: {self.profile_id} @{self.url}'
