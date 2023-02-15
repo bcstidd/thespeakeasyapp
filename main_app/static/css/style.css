@@ -134,19 +134,19 @@ nav {
 }
 
 a {
-  color: white;
+  color: white !important;
   font-size: larger;
 }
 
 p {
   margin-top: 10px;
-
 }
 
 .container {
   display: flex;
   justify-content: center;
-  
+  align-items: center;
+  background-color: #2D6373;
 }
 
 label {
@@ -160,4 +160,19 @@ label {
 .icon {
   display: flex;
   justify-content: flex-end;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  font-style:oblique;
+}
+
+nav a {
+  flex: 1;
+  text-align: center;
+  margin: 0px 50px 0px 50px;
+  
+ 
 }
