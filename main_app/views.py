@@ -6,14 +6,18 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, TemplateView
 # from django.views import TemplateView
 from .models import Post, User
+
 from userprofile.models import Profile, Photo
 from .forms import CommentForm, UserForm
 
+
+from userprofile.models import Profile
 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from googletrans import LANGUAGES, Translator
 
 
 class HomeView(TemplateView):
@@ -46,7 +50,6 @@ class PostCreate(LoginRequiredMixin, CreateView):
         if self.request.user.is_authenticated:
             context['profile_id'] = self.request.user.profile.id
         return context
-
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
@@ -83,17 +86,14 @@ class PostDelete(LoginRequiredMixin, DeleteView):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            # user.email = form.cleaned_data['email']
-            # user.first_name = form.cleaned_data['first_name']
-            # user.last_name = form.cleaned_data['last_name']
             user = form.save()
             login(request, user)
             return redirect('/')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserForm()
+    form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
@@ -116,6 +116,7 @@ def add_favs(request, profile_id, post_id):
     return redirect('home')
 
 
+
 def add_photo(request, profile_id):
     # photo-file will be the "name" attribute on the <input type="file">
     photo_file = request.FILES.get('photo-file', None)
@@ -136,3 +137,28 @@ def add_photo(request, profile_id):
             print('An error occurred uploading file to S3')
             print(e)
     return redirect('profile_detail', pk=profile_id)
+
+def translate(request):
+    # Get the text to be translated from the request
+    text = request.GET.get('text', '')
+
+    # If text is empty or None, return an empty response
+    if not text:
+        return render(request, 'translate.html', {'languages': LANGUAGES})
+
+    # Get the source and destination languages from the request
+    source = request.GET.get('source', 'auto')
+    dest = request.GET.get('destination', 'en')
+
+    # Create a translator object
+    translator = Translator()
+
+    # Detect the language of the text
+    detected_language = translator.detect(text)
+
+    # Translate the text to the destination language
+    translation = translator.translate(text, src=source, dest=dest)
+
+    # Render the translation in a template
+    return render(request, 'translate.html', {'languages': LANGUAGES, 'translation': translation})
+

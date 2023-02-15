@@ -3,6 +3,7 @@
 {% block content %}
 
 
+
 <div class="profile">
     {% for photo in profile.photo_set.all %}
     <img class="responsive-img card-panel" src="{{photo.url}}">
@@ -20,15 +21,16 @@
         <p>Primary Language: {{ profile.primary_language }}</p>
     </div>
 
-    <div class="favorite-posts">
-        <h2>Favorite Posts:</h2>
-        <ul>
-            {% for post in profile.favorite_posts.all %}
-            <li>{{ post.phrase }}</li>
-            {% empty %}
-            <li>No favorite posts yet.</li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+<h1>{{ profile.user.username }}'s Profile</h1>
+<p>Primary Language: {{ profile.primary_language }}</p>
+
+
+<h2>Favorite Posts:</h2>
+<ul>
+    {% for post in profile.favorite_posts.all %}
+    <li>{{ post.phrase }}</li>
+    {% empty %}
+    <li>No favorite posts yet.</li>
+    {% endfor %}
+</ul>
 {% endblock %}
