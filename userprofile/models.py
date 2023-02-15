@@ -30,7 +30,7 @@ class Profile(models.Model):
         Post, related_name='favorited_by', blank=True)
 
     def __str__(self):
-        return f'{self.id}:{self.user.username}: {self.favorite_posts}'
+        return f'{self.id}:{self.user.username}, {self.get_primary_language_display()}, {self.favorite_posts}'
 
 
 @receiver(post_save, sender=User)
