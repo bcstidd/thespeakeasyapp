@@ -4,16 +4,14 @@ from django.views.generic import ListView, DetailView, TemplateView
 # from django.views import TemplateView
 from .models import Post, User
 from userprofile.models import Profile
+from .forms import CommentForm, UserForm
+
+
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
-
-
-# def home(request):
-#     return render(request, 'home.html')
 
 class HomeView(TemplateView):
     template_name = 'home.html'
@@ -23,7 +21,6 @@ class HomeView(TemplateView):
         if self.request.user.is_authenticated:
             context['profile_id'] = self.request.user.profile.id
         return context
-
 
 
 class PostList(ListView):
@@ -46,6 +43,7 @@ class PostCreate(LoginRequiredMixin, CreateView):
         if self.request.user.is_authenticated:
             context['profile_id'] = self.request.user.profile.id
         return context
+
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
@@ -82,14 +80,17 @@ class PostDelete(LoginRequiredMixin, DeleteView):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserForm(request.POST)
         if form.is_valid():
+            # user.email = form.cleaned_data['email']
+            # user.first_name = form.cleaned_data['first_name']
+            # user.last_name = form.cleaned_data['last_name']
             user = form.save()
             login(request, user)
             return redirect('/')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
+    form = UserForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
