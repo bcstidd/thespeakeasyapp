@@ -4,19 +4,15 @@
   
   {% for post in post_list %}
   <div class="row">
-<h2 class="postname">Posted by {{user.username}} </h2> 
-<a href="{% url 'posts_detail' post.id %}"></a>
+<h2 class="postname">Posted by {{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }} </h2> 
+<a href="{% url 'posts_detail' post.id %}">
   <div class="card">
     <div class="card-content">
         <span class="card-title">{{ post.phrase }}</span>
         <p>Country of Origin: {{ post.country_of_origin }}</p>
-        <div class="card-action">
-          <a href="{% url 'posts_update' post.id %}">Edit</a>
-          <a href="{% url 'posts_delete' post.id %}">Delete</a>
-          <a href="{% url 'add_favs' post.id profile_id %}">Add to Favorites</a>
-          <i class="fa fa-star"></i> 
         </div>
     </div>
+  </a>
   </div>
   </div>
 
