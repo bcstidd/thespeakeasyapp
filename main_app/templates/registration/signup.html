@@ -1,11 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<img src="https://i.imgur.com/lWPEWDV.png">
-
-
-
-
+<img src="../../static/images/solologo.png">
 <div class="sign">
 <form method="POST" action="{% url 'signup' %}">
   {% csrf_token %}
