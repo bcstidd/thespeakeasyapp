@@ -23,17 +23,6 @@ body {
     
   }
   
-  footer.page-footer {
-    height: 25px;
-    text-align: left;
-    color: white;
-    background-color: #2D6373;
-    margin-bottom: -5px;
-  } 
-  
-
-
-
 main {
   flex: 1 0 auto;
   /* border: 3px solid black; */
@@ -41,14 +30,18 @@ main {
   padding: 0;
 }
 
-footer.page-footer {
-  height: 25px;
-  text-align: left;
+footer.page-footer { 
+  display: flex;
+  justify-content: space-between;
   color: white;
   background-color: #2D6373;
   margin-bottom: -5px;
   position: sticky
 }
+
+footer.page-footer img {
+  justify-self: flex-end;
+} 
 
 header.img {
   margin: 0 auto;
@@ -71,7 +64,6 @@ header.img {
 }
 
 #home-body>nav>a {
- 
   margin: 0px 10px 0px 10px;
   width: 100%;
   text-decoration: none;
@@ -85,7 +77,6 @@ nav {
   width: 100%;
 }
 
-
 .home-page{
   margin-top:  -5px;
 }
@@ -93,10 +84,6 @@ nav {
   width: 50%;
   max-height:400px; 
 }
-.home-page {
-  margin-top: -5px;
-}
-
 .carousel-inner {
   max-width: 85%;
   max-height: 400px;
@@ -107,22 +94,15 @@ nav {
   border: 2px solid black;
 }
 
-.carousel img {
-  width: 100%;
-}
-
-
 #home-body {
   background-color: #FFAE2C;
 }
-
-/* .navbar-fixed {
+.container {
   display: flex;
   justify-content: space-evenly;
-  background-color: #FFAE2C;
   align-items: center;
-} */
-
+  background-color: #2D6373;
+}
 .log {
   display: flex;
   padding: 20px;
@@ -132,10 +112,9 @@ nav {
   border: 3px solid black;
   background-color: #2D6373;
   color: white;
-  margin: 0 auto;
   border-radius: 10px;
+  margin-right: 300px;
 }
-
 .inbtn {
   justify-content: center;
   align-self:center;
@@ -144,7 +123,10 @@ nav {
   float: right;
   border-radius: 5px;
 }
-
+.loginlogo {
+  align-self: center;
+  position: static;
+}
 a {
   color: white !important;
   font-size: larger;
@@ -152,13 +134,6 @@ a {
 
 p {
   margin-top: 10px;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #2D6373;
 }
 
 label {
@@ -171,7 +146,8 @@ label {
 
 .icon {
   display: flex;
-  justify-content: flex-end;
+  justify-self: flex-end;
+  align-self:flex-end;
 }
 
 .sign {
@@ -179,7 +155,8 @@ label {
   justify-content: center;
   height: 510px;
   margin: 0px 500px 0px 50px;
-  width: 600px;
+  min-width: 400px;
+  max-width: 700px;
   border: 2px solid white;
   margin-bottom: none;
 }
@@ -199,15 +176,66 @@ label {
   margin: 10px 0px 0px 50px;
 }
 
+.card-action>a {
+  text-decoration: none;
+  margin: 0px 5px 0px 2px;
+  font-size: large;
+  padding-left: 3px;
+  font-weight: 50;
+  border-left: 2px solid #FCC771;
+  border-top: 2px solid #FCC771;
+
+}
+.card {
+  display: flex;
+  justify-content: space-evenly;
+  width: 300px;
+  height: 150px;
+  border: 3px solid lightslategray;
+  padding: 5px;
+  margin: 10px;
+}
+
+.card-content {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: space-around;
+  width:fit-content;
+}
+
+.fa {
+  font-size: 13px;
+  color:#FCC771
+}
+
+h1.postname>a {
+  color: red;
+}
+
+
+
+.post_list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   font-style:oblique;
+  text-decoration: none;
 }
 
 nav a {
   flex: 1;
+  text-decoration: none;
   text-align: center;
-  margin: 0px 50px 0px 50px
+  margin: 5px 50px 0px 50px
+}
+
+.right {
+  align-self: flex-end;
 }
