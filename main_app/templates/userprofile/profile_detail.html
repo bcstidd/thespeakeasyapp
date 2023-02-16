@@ -21,10 +21,6 @@
         <p>Primary Language: {{ profile.primary_language }}</p>
     </div>
 
-<h1>{{ profile.user.username }}'s Profile</h1>
-<p>Primary Language: {{ profile.primary_language }}</p>
-
-
 <h2>Favorite Posts:</h2>
 <ul>
     {% for post in profile.favorite_posts.all %}
