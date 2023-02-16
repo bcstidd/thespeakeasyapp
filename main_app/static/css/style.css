@@ -5,19 +5,15 @@
   box-sizing: border-box;
 }
 
-
 body {
-<<<<<<< HEAD
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    background-color: #FFAE2C;
-    background-size: cover;
-    width: 100%;
-    margin-bottom: 5px;
-    justify-content: center;
-  }
-  
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #FFAE2C;
+  background-size: cover;
+  width: 100%;
+  margin-bottom: 5px;
+}
   main {
     flex: 1 0 auto;
     /* border: 3px solid black; */
@@ -27,26 +23,6 @@ body {
     
   }
   
-  footer.page-footer {
-    height: 25px;
-    text-align: left;
-    color: white;
-    background-color: #2D6373;
-    margin-bottom: -5px;
-  } 
-  
-
-
-=======
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  background-color: #FFAE2C;
-  background-size: cover;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
 main {
   flex: 1 0 auto;
   /* border: 3px solid black; */
@@ -54,16 +30,19 @@ main {
   padding: 0;
 }
 
-footer.page-footer {
-  height: 25px;
-  text-align: left;
+footer.page-footer { 
+  display: flex;
+  justify-content: space-between;
   color: white;
   background-color: #2D6373;
   margin-bottom: -5px;
   position: sticky
 }
 
->>>>>>> main
+footer.page-footer img {
+  justify-self: flex-end;
+} 
+
 header.img {
   margin: 0 auto;
   width: 100%;
@@ -85,7 +64,6 @@ header.img {
 }
 
 #home-body>nav>a {
- 
   margin: 0px 10px 0px 10px;
   width: 100%;
   text-decoration: none;
@@ -99,70 +77,32 @@ nav {
   width: 100%;
 }
 
-<<<<<<< HEAD
-  .get-started-button {
-    position: relative;
-    margin-top: 20px;
-    display: inline-block;
-    padding: 10px 20px; 
-    background-color:#2D6373;
-    border: 1px solid gray;
-    border-radius: 25px; 
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: gray;
-    transition: all 0.2s ease-in-out;
-  }
-  .get-started-button:hover {
-    color: white;
-    background-color: gray;
-    cursor: pointer;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
-  }
-
 .home-page{
   margin-top:  -5px;
 }
 .carousel-inner {
   width: 50%;
   max-height:400px; 
-=======
-.home-page {
-  margin-top: -5px;
 }
-
 .carousel-inner {
   max-width: 85%;
   max-height: 400px;
->>>>>>> main
 }
 .carousel-item img {
   width: 100%;
   background-color: #FFAE2C;
   border: 2px solid black;
 }
-<<<<<<< HEAD
-=======
 
-.carousel img {
-  width: 100%;
-}
-
->>>>>>> main
 #home-body {
   background-color: #FFAE2C;
 }
-
-/* .navbar-fixed {
+.container {
   display: flex;
   justify-content: space-evenly;
-  background-color: #FFAE2C;
   align-items: center;
-} */
-
+  background-color: #2D6373;
+}
 .log {
   display: flex;
   padding: 20px;
@@ -172,10 +112,9 @@ nav {
   border: 3px solid black;
   background-color: #2D6373;
   color: white;
-  margin: 0 auto;
   border-radius: 10px;
+  margin-right: 300px;
 }
-
 .inbtn {
   justify-content: center;
   align-self:center;
@@ -184,7 +123,10 @@ nav {
   float: right;
   border-radius: 5px;
 }
-
+.loginlogo {
+  align-self: center;
+  position: static;
+}
 a {
   color: white !important;
   font-size: larger;
@@ -192,13 +134,6 @@ a {
 
 p {
   margin-top: 10px;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #2D6373;
 }
 
 label {
@@ -211,17 +146,17 @@ label {
 
 .icon {
   display: flex;
-  justify-content: flex-end;
+  justify-self: flex-end;
+  align-self:flex-end;
 }
 
-<<<<<<< HEAD
-=======
 .sign {
   display: flex;
   justify-content: center;
   height: 510px;
   margin: 0px 500px 0px 50px;
-  width: 600px;
+  min-width: 400px;
+  max-width: 700px;
   border: 2px solid white;
   margin-bottom: none;
 }
@@ -241,18 +176,66 @@ label {
   margin: 10px 0px 0px 50px;
 }
 
->>>>>>> main
+.card-action>a {
+  text-decoration: none;
+  margin: 0px 5px 0px 2px;
+  font-size: large;
+  padding-left: 3px;
+  font-weight: 50;
+  border-left: 2px solid #FCC771;
+  border-top: 2px solid #FCC771;
+
+}
+.card {
+  display: flex;
+  justify-content: space-evenly;
+  width: 300px;
+  height: 150px;
+  border: 3px solid lightslategray;
+  padding: 5px;
+  margin: 10px;
+}
+
+.card-content {
+  display: flex;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: space-around;
+  width:fit-content;
+}
+
+.fa {
+  font-size: 13px;
+  color:#FCC771
+}
+
+h1.postname>a {
+  color: red;
+}
+
+
+
+.post_list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   font-style:oblique;
+  text-decoration: none;
 }
 
 nav a {
   flex: 1;
+  text-decoration: none;
   text-align: center;
-  margin: 0px 50px 0px 50px;
-  
- 
+  margin: 5px 50px 0px 50px
+}
+
+.right {
+  align-self: flex-end;
 }

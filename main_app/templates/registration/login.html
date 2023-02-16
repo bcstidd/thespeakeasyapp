@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="loginlogo">
+  <img src="../../static/images/solologo.png">
+</div>
 <div class="log">
-
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
