@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <main class="post_list">
-  
+<!--   
   {% for post in post_list %}
   <div class="row">
 <h2 class="postname">Posted by {{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }} </h2> 
@@ -14,8 +14,23 @@
     </div>
   </a>
   </div>
+  </div> -->
+  <div class="card">
+    <h2 class="postname">Posted by {{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }} </h2> 
+    <div class="card-content">
+      <span class="card-title">{{ post.phrase }}</span>
+      <p>Country of Origin: {{ post.country_of_origin }}</p>
+      
+      <!-- <h2 class="card-title">Title</h2> -->
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis est ullamcorper, commodo leo et, tincidunt ipsum. Nam vel gravida velit. Aliquam ut libero eget nulla dictum aliquam ut sit amet sapien.</p>
+    </div>
+    <div class="card-footer">
+      <a href="{% url 'posts_detail' post.id %}">See More</a>
+    </div>
   </div>
-
+    </div>
+  </div>
 {% endfor %}
+
 </main>
 {% endblock %}
