@@ -21,7 +21,7 @@ LANGUAGES = (
 
 class Post(models.Model):
     phrase = models.TextField()
-    date = models.DateTimeField()
+    date = models.DateTimeField(default=timezone.now)
     country_of_origin = models.CharField(max_length=200)
     native_language = models.CharField(max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
