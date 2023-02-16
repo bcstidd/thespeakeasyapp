@@ -147,7 +147,7 @@ label {
 .icon {
   display: flex;
   justify-self: flex-end;
-  align-self: flex-end;
+
 }
 
 .sign {
@@ -214,12 +214,12 @@ h1.postname>a {
   color: red;
 }
 
-
-
 .post_list {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
 nav {
