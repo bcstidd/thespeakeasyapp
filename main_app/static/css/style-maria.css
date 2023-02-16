@@ -1,11 +1,33 @@
-.left-side,
-.right-side {
-    flex: 1;
-    margin: 10px;
-    padding: 10px;
-    background-color: white;
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 5px;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    margin: auto;
+}
+
+.left-side {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    border-left: 1px solid #ccc;
+}
+
+.right-side {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    /* border-right: 1px solid #ccc; */
+}
 
 .profile-img {
     width: 200px;
