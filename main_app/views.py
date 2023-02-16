@@ -4,15 +4,9 @@ import os
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView, TemplateView
-# from django.views import TemplateView
 from .models import Post, User
-
 from userprofile.models import Profile, Photo
 from .forms import CommentForm, UserForm
-
-
-from userprofile.models import Profile
-
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -45,6 +39,10 @@ class PostCreate(LoginRequiredMixin, CreateView):
     fields = ['phrase', 'country_of_origin',
               'native_language', 'date']
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
@@ -59,6 +57,20 @@ class PostDetail(LoginRequiredMixin, DetailView):
         context = super().get_context_data(**kwargs)
         context['profile_id'] = self.request.user.profile.id
         return context
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = self.object
+            comment.user = request.user
+            comment.save()
+            return redirect('posts_detail', pk=self.object.pk)
+        else:
+            context = self.get_context_data(object=self.object)
+            context['form'] = form
+            return self.render_to_response(context)
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
@@ -86,14 +98,14 @@ class PostDelete(LoginRequiredMixin, DeleteView):
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('/')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
+    form = UserForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
@@ -138,27 +150,15 @@ def add_photo(request, profile_id):
             print(e)
     return redirect('profile_detail', pk=profile_id)
 
-def translate(request):
-    # Get the text to be translated from the request
-    text = request.GET.get('text', '')
 
-    # If text is empty or None, return an empty response
+def translate(request):
+    text = request.GET.get('text', '')
     if not text:
         return render(request, 'translate.html', {'languages': LANGUAGES})
-
-    # Get the source and destination languages from the request
     source = request.GET.get('source', 'auto')
     dest = request.GET.get('destination', 'en')
-
-    # Create a translator object
     translator = Translator()
-
-    # Detect the language of the text
     detected_language = translator.detect(text)
-
-    # Translate the text to the destination language
     translation = translator.translate(text, src=source, dest=dest)
-
-    # Render the translation in a template
     return render(request, 'translate.html', {'languages': LANGUAGES, 'translation': translation})
 

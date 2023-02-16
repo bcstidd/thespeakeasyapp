@@ -23,14 +23,13 @@ class Profile(models.Model):
     primary_language = models.CharField(
         max_length=20,
         choices=LANGUAGES,
-        default=LANGUAGES[2][1],
-        null=True
+        default=LANGUAGES[2][0]
     ),
     favorite_posts = models.ManyToManyField(
         Post, related_name='favorited_by', blank=True)
 
     def __str__(self):
-        return f'{self.id}:{self.user.username}: {self.favorite_posts}'
+        return f'{self.id}:{self.user.username}, {self.favorite_posts}'
 
 
 @receiver(post_save, sender=User)
