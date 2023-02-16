@@ -100,21 +100,18 @@ nav {
 .carousel-inner {
   max-width: 85%;
   max-height: 400px;
->>>>>>> main
 }
 .carousel-item img {
   width: 100%;
   background-color: #FFAE2C;
   border: 2px solid black;
 }
-<<<<<<< HEAD
-=======
 
 .carousel img {
   width: 100%;
 }
 
->>>>>>> main
+
 #home-body {
   background-color: #FFAE2C;
 }
