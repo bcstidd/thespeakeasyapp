@@ -1,0 +1,22 @@
+.post-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: space-evenly;
+    border: solid black;
+    width: 100%;
+}
+
+.post-details {
+    font-size: 20px;
+    border: solid red;
+}
+
+.comment-details {
+    font-size: 20px;
+    border: solid red;
+}
+
+.post-card-action>a {
+    text-decoration: none;
+}
