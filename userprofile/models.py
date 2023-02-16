@@ -17,14 +17,36 @@ LANGUAGES = (
     ('HE', 'עברית'),  # Hebrew
 )
 
+COUNTRIES = (
+    ('🇺🇸', 'United States'),
+    ('🇨🇦', 'Canada'),
+    ('🇲🇽', 'Mexico'),
+    ('🇧🇷', 'Brazil'),
+    ('🇦🇷', 'Argentina'),
+    ('🇫🇷', 'France'),
+    ('🇩🇪', 'Germany'),
+    ('🇮🇹', 'Italy'),
+    ('🇪🇸', 'Spain'),
+    ('🇨🇳', 'China'),
+    ('🇯🇵', 'Japan'),
+    ('🇰🇷', 'South Korea'),
+    ('🇮🇳', 'India'),
+    ('🇦🇺', 'Australia'),
+    ('🇳🇿', 'New Zealand'),
+)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     primary_language = models.CharField(
         max_length=20,
         choices=LANGUAGES,
-        default=LANGUAGES[2][0]
-    ),
+        default=LANGUAGES[0][0]
+    )
+    flag = models.CharField(
+        max_length=20,
+        choices=COUNTRIES,
+        default=COUNTRIES[2][0]
+    )
     favorite_posts = models.ManyToManyField(
         Post, related_name='favorited_by', blank=True)
 

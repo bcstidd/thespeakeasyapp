@@ -2,54 +2,64 @@
 {% block content %}
 
 
-<!-- <div class="row">
-  <div class="col s6 col-offset-3"> -->
-    <div class="card-details">
+    <div class="post-card-details">
 
       <div class="post-details">
-      <div class="card-content">
-        <h1>Post Details</h1>
-        <span class="post-card-title">Phrase: {{ post.phrase }}</span>
-        <p>Country of Origin: {{ post.country_of_origin }}</p>
-        <p>Native Language: {{ post.native_language }}</p>
-        <p>Date: {{ post.date }}</p>
-      </div>
-      <div class="card-action">
-        <a href="{% url 'posts_update' post.id %}">Edit</a>
-        <a href="{% url 'posts_delete' post.id %}">Delete</a>
-        <a href="{% url 'add_favs' post.id profile_id %}">Add to Favorites</a>
-      </div>
-
-      </div><br>
-      <div class="create-comments">
-        <form action="" method="post">
-          <!-- Django requires the following for security purposes -->
-          {% csrf_token %}
-          <table>
-            <!-- Render the inputs inside of <tr>s & <td>s -->
-            {{ form.as_table }}
-          </table>
-          <input type="submit" value="Submit!" class="btn">
-        </form>
-      </div>
-      <div class="view-comments">
-        <table>
-          <thead>
-            <tr><th>Date</th><th>Username</th><th>Comment</th></tr>
-          </thead>
-          <tbody>
-            {% for comment in post.comment_set.all %}
+        <div class="post-card-content">
+          <div class="poster-info">
+            <div class="poster-name">
+              {{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }}
+            </div>
+            <div class="post-time">
+              {{ post.date|date:"h:i A T, F jS, Y" }}
+            </div>
+          </div>
+            <div class="phrase">
+              <span class="post-card-title">{{ post.phrase }}</span>
+            </div>
+            <div class="poster-origin">
+              {{ post.native_language }} ||
+              {{ post.country_of_origin }}
+            </div>
+            <div class="post-card-action">
+                <a href="{% url 'posts_update' post.id %}">✏️</a>
+                <a href="{% url 'posts_delete' post.id %}">🗑</a>
+                <a href="{% url 'add_favs' post.id profile_id %}">❤️</a>
+              </div>
+          </div>
+        </div>
+      
+      
+      <div class="post-comment-details">
+        <div class="view-comments">
+          <table class="comment-table">
+            <thead>
+              <tr><th>Language</th><th>Comment</th><th>User</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+              {% for comment in post.comment_set.all %}
               <tr>
-                <td>{{comment.date}}</td>
-                <td>{{comment.user.username}}</td>
+                <td>{{comment.language}}</td>
                 <td>{{comment.comment}}</td>
+                <td>{{comment.user.username}}</td>
+                <td>{{comment.date|date:"m/d/y"}}</td>
               </tr>
-            {% endfor %}
-          </tbody>
+              {% endfor %}
+            </tbody>
           </table>
-    </div>
+        </div>
+        <div class="create-comments">
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="comment-language-input">{{ form.language }} </div>
+              <div class="comment-textarea">{{ form.comment }} </div>
+              <input type="submit" value="Submit!" class="btn">
+            </div>
+          </form>
+        </div>
+     </div>
 
     </div>
-  <!-- </div>
-</div> -->
+
 {% endblock %}
