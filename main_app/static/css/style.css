@@ -19,17 +19,8 @@ body {
     /* border: 3px solid black; */
     margin:0;
     padding: 0;
-
-    
   }
   
-main {
-  flex: 1 0 auto;
-  /* border: 3px solid black; */
-  margin: 0;
-  padding: 0;
-}
-
 footer.page-footer { 
   display: flex;
   justify-content: space-between;
@@ -212,8 +203,6 @@ label {
 h1.postname>a {
   color: red;
 }
-
-
 
 .post_list {
   display: flex;
