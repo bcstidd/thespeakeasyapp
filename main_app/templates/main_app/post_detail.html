@@ -8,7 +8,7 @@
         <div class="post-card-content">
           <div class="poster-info">
             <div class="poster-name">
-              {{ post.user.first_name }} {{ post.user.last_name }}
+              {{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }}
             </div>
             <div class="post-time">
               {{ post.date|date:"h:i A T, F jS, Y" }}
@@ -18,7 +18,7 @@
               <span class="post-card-title">{{ post.phrase }}</span>
             </div>
             <div class="poster-origin">
-              {{ post.native_language }} |
+              {{ post.native_language }} ||
               {{ post.country_of_origin }}
             </div>
             <hr>
