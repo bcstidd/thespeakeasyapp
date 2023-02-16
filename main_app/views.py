@@ -164,3 +164,5 @@ def translate(request):
     translation = translator.translate(text, src=source, dest=dest)
     return render(request, 'translate.html', {'languages': LANGUAGES, 'translation': translation})
 
+def about(request):
+    return render(request, 'about.html')

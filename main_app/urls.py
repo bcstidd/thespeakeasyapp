@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import translate
+from .views import translate, about
 # from userprofile.views import add_favs
 
 urlpatterns = [
@@ -16,4 +16,5 @@ urlpatterns = [
     path('profiles/<int:pk>', views.ProfileDetail.as_view(), name='profile_detail'),
     path('profiles/<int:profile_id>/add_photo/', views.add_photo, name='add_photo'),
     path('translate/', translate, name='translate'),
+    path('about/', about, name='about')
 ]
