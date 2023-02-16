@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +13,15 @@
             margin: 0;
             height: 100vh;
         }
+        p{
+            color: black;
+        }
+        h3{
+            color:black;
+        }
+        .row{
+            align-items: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -23,11 +33,11 @@
         <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-                <img src="https://via.placeholder.com/300" alt="Team Member 1">
+                <img src="{% static 'images/charles.jpeg' %}" alt="Team Member 1">
                 <span class="card-title">Charles Grody</span>
             </div>
             <div class="card-content">
-            <p>role here </p>
+            <p>Github Manager + Scrum Master </p>
         </div>
             <div class="card-action">
                 <a href="https://github.com/cdgrody/">GitHub</a>
@@ -39,11 +49,11 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-            <img src="https://via.placeholder.com/300" alt="Brittany Stidd">
+            <img src="{% static 'images/brittany.jpeg' %}" alt="Brittany Stidd">
             <span class="card-title">Brittany Stidd</span>
             </div>
             <div class="card-content">
-                <p>role here</p>
+                <p>Designer + Documenter</p>
             </div>
             <div class="card-action">
                 <a href="https://github.com/bcstidd">GitHub</a>
@@ -55,11 +65,11 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-            <img src="https://via.placeholder.com/300" alt="Team Member 3">
+            <img src="{% static 'images/maria.jpeg' %}" alt="Team Member 3">
             <span class="card-title">Maria Reeves</span>
             </div>
         <div class="card-content">
-            <p>role here</p>
+            <p>Designer + Documenter</p>
         </div>
         <div class="card-action">
             <a href="https://github.com/mariareeves">GitHub</a>
@@ -71,11 +81,11 @@
     <div class="col s12 m6 l3">
         <div class="card">
         <div class="card-image">
-            <img src="https://via.placeholder.com/300" alt="Team Member 4">
+            <img src="{% static 'images/lola.jpeg' %}" alt="Team Member 4">
             <span class="card-title">Lola Russell</span>
         </div>
         <div class="card-content">
-            <p>role</p>
+            <p>Database Manager + API Manager</p>
         </div>
         <div class="card-action">
             <a href="https://github.com/LeeLoo3434">GitHub</a>
