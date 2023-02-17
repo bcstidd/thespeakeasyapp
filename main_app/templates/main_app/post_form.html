@@ -16,7 +16,7 @@
       <div class="add-post-form">
         <form class="post-form" action="" method="post">
           {% csrf_token %}
-          <textarea class="add-full-width" name="{{ form.phrase.name }}">{{ form.phrase.value|default:'' }}</textarea>
+          <textarea class="add-full-width" name="{{ form.phrase.name }}"></textarea>
           <div class="post-non-phrase-inputs">
           <input type="text" name="{{ form.native_language.name }}" placeholder="Native Language" value="{{ form.native_language.value|default:'' }}">
           <input type="text" name="{{ form.country_of_origin.name }}" placeholder="Home Country" value="{{ form.country_of_origin.value|default:'' }}">
