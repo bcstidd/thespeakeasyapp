@@ -4,45 +4,28 @@
   <div class="add-post-details">
     <div class="post-card-content">
       <div class="poster-info-add-post">
-        <div class="phrase">
+        <div class="add-phrase">
           <div class="make-post-title">
           {% if object %}
-          <h1>Edit Phrase<span class="teal-text">{{object.name}}</span></h1>
+          <h1>Hey {{ user.first_name}}, what should we edit?<span class="teal-text">{{object.name}}</span></h1>
           {% else %}
-          <h1>Add Phrase to Translate Here:</h1>
+          <h1>Hey {{ user.first_name}}, what phrase should we translate?</h1>
           {% endif %}
         </div>
       </div>
       <div class="add-post-form">
-        <form action="" method="post">
+        <form class="post-form" action="" method="post">
           {% csrf_token %}
-          <span class="post-card-title">{{ form.phrase }}</span>
-          <div class="poster-origin">
-            {{ form.native_language }} || {{ form.country_of_origin }}
-          </div>
+          <textarea class="add-full-width" name="{{ form.phrase.name }}">{{ form.phrase.value|default:'' }}</textarea>
+          <div class="post-non-phrase-inputs">
+          <input type="text" name="{{ form.native_language.name }}" placeholder="Native Language" value="{{ form.native_language.value|default:'' }}">
+          <input type="text" name="{{ form.country_of_origin.name }}" placeholder="Home Country" value="{{ form.country_of_origin.value|default:'' }}">
           <input type="submit" value="Submit!" class="btn" />
+        </div>
         </form>
       </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- <form action="" method="post">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <input type="submit" value="Submit!" class="btn" />
-</form>
-
-<script>
-  const dateEl = document.getElementById("id_date");
-  M.Datepicker.init(dateEl, {
-    format: "yyyy-mm-dd",
-    defaultDate: new Date(),
-    setDefaultDate: true,
-    autoClose: true,
-  });
-</script> -->
 {% endblock %}
