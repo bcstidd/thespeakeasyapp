@@ -31,6 +31,16 @@
       
       
       <div class="post-comment-details">
+        <div class="create-comments">
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="comment-language-input">{{ form.language }} </div>
+              <div class="comment-textarea">{{ form.comment }} </div>
+              <input type="submit" value="Submit!" class="btn">
+            </div>
+          </form>
+        </div>
         <div class="view-comments">
           <table class="comment-table">
             <thead>
@@ -48,16 +58,7 @@
             </tbody>
           </table>
         </div>
-        <div class="create-comments">
-          <form action="" method="post">
-            {% csrf_token %}
-            <div class="form-group">
-              <div class="comment-language-input">{{ form.language }} </div>
-              <div class="comment-textarea">{{ form.comment }} </div>
-              <input type="submit" value="Submit!" class="btn">
-            </div>
-          </form>
-        </div>
+
      </div>
 
     </div>

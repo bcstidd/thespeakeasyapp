@@ -13,14 +13,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(to bottom, #e5e5e5, #f5f5f5);
+    background-image: linear-gradient(to bottom, #225943, #2e7d32);    
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
     padding: 20px;
     padding-bottom: 2px;
     margin-bottom: 20px;
     height: 50%;
-    width: 50%;
+    width: 70%;
 }
 
 .poster-info {
@@ -36,7 +36,7 @@
     justify-content: space-evenly;
     align-items: center;
     font-size: 18px;
-    color: #333;
+    color: #eee;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -47,9 +47,14 @@
     justify-content: center;
     align-items: center;
     height: 90%;
-    width: 100%;
+    width: 80%;
     font-size: 30px;
+    padding: 10px;
+    margin: 15px;
     color: darkblue;
+    background-image: linear-gradient(to bottom, #e5e5e5, #f5f5f5);
+    box-shadow: 2px 2px 5px black;
+    border-radius: 4px;
 }
 
 .post-card-title {
@@ -81,7 +86,7 @@
 
 .poster-origin {
     display: flex;
-    color: darkorchid;
+    color: #ccc;
     flex-direction: row;
     justify-content: center;
     width: 100%;
@@ -97,6 +102,7 @@
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
     padding: 5px;
+    width: 70%;
 }
 
 #id_comment {
@@ -114,11 +120,12 @@
 .form-group {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .form-group>.comment-language-input {
-    margin: 2px;
+    margin: 4px;
 }
 
 .comment-textarea {
@@ -127,7 +134,7 @@
 
 .form-group>input {
     height: 80%;
-    margin: 2px;
+    margin: 4px;
 }
 
 .poster-info-add-post {
