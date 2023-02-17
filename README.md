@@ -57,7 +57,7 @@ https://trello.com/b/Ztcok7Fi/project-3-speakeasy
 
 ## Getting Started:
 
-[link here ]
+https://speakeasy123.herokuapp.com/
 
 
 ---
