@@ -6,7 +6,7 @@
     <h2 class="postname">{{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }} </h2> 
     <div class="card-content">
       <p>Country of Origin: {{ post.country_of_origin }}</p>
-          <span class="card-text">{{ post.phrase }}</span>
+      <span class="card-text">{{ post.phrase }}</span>
     </div>
     <div class="card-footer">
       <a href="{% url 'posts_detail' post.id %}">See More</a>
