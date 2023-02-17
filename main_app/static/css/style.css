@@ -90,7 +90,6 @@ nav {
 }
 
 #home-body {
-  /* background-color: #FFAE2C; */
   background-image: linear-gradient(to bottom, #FCC771, #FB8500);
 }
 
@@ -222,10 +221,6 @@ p {
   width: fit-content;
 }
 
-
-.fa {
-  font-size: 13px;
-  color: #FCC771
 
 .card {
   background-color: #fff;
