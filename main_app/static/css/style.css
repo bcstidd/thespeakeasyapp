@@ -5,7 +5,7 @@
 }
 
 body {
-  position: fixed;
+  position: relative;
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -29,7 +29,7 @@ footer.page-footer {
   color: white;
   background-color: #2D6373;
   margin-bottom: -5px;
-  position: sticky
+  position: sticky;
 }
 
 footer.page-footer img {
@@ -39,6 +39,7 @@ footer.page-footer img {
 header.img {
   margin: 0 auto;
   width: 100%;
+  position: fixed;
 }
 
 h1 {
@@ -160,7 +161,7 @@ p {
 .icon {
   display: flex;
   justify-self: flex-end;
-
+  position: fixed;
 }
 
 .sign {
@@ -174,7 +175,6 @@ p {
   border-radius: 10px;
   margin-bottom: none;
   background-image: linear-gradient(to bottom, #FCC771, #FB8500);
-
 }
 
 .sign>form {
@@ -221,6 +221,10 @@ p {
   width: fit-content;
 }
 
+
+.fa {
+  font-size: 13px;
+  color: #FCC771
 
 .card {
   background-color: #fff;
@@ -290,7 +294,7 @@ p {
 }
 
 nav {
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
