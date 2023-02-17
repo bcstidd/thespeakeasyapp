@@ -5,13 +5,10 @@
 
 ---
 
-Welcome to Speakeasy,
+Welcome to SpeakEasy, the community language app where you can share and learn new phrases in your native language. Connect with language enthusiasts from around the world and receive feedback on your posts to improve your skills.
 
- The community language app where you can share and learn new phrases in your native language. Connect with language enthusiasts from around the world and receive feedback on your posts to improve your skills.
+With SpeakEasy, you can create a profile page to save your favorite posts and track your progress. Personalize your account by adding a profile picture and sharing your interests with the community. Join our community today and start sharing your love of language with the world on SpeakEasy.
 
-On Speakeasy, you can create a profile page to save your favorite posts and track your progress. Add a profile picture to personalize your account and share your interests with the community.
-
-Join our community today and start sharing your love of language with the world on Speakeasy.
 
 ---
 
