@@ -77,7 +77,7 @@ class PostDetail(LoginRequiredMixin, DetailView):
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['phrase', 'country_of_origin', 'native_language', 'date']
+    fields = ['phrase', 'country_of_origin', 'native_language']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
