@@ -6,6 +6,7 @@
 }
 
 body {
+  position: fixed;
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -281,6 +282,7 @@ p {
 }
 
 nav {
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -295,8 +297,9 @@ nav a {
   margin: 5px 50px 0px 50px
 }
 
-.right {
+footer, .right {
   position: fixed;
   bottom: 0;
   left: 0;
 }
+
