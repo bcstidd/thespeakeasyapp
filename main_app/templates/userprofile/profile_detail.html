@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style-maria.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -15,7 +14,7 @@
 
 <body>
     <nav>
-        <div class="nav-wrapper amber lighten-3">
+        <div class="nav-wrapper  amber accent-3">
             <ul class="right hide-on-med-and-down">
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'posts_create' %}">Add A Post</a></li>
@@ -29,8 +28,10 @@
             </ul>
         </div>
     </nav>
-    <main class="container">
+    <div class="container-profile">
+
         <div class="left-side">
+            <h1>{{ profile.user.first_name }}'s Profile</h1>
             {% for photo in profile.photo_set.all %}
             <div>
                 <img class="profile-img" src="{{photo.url}}" alt="Profile Photo">
@@ -45,24 +46,30 @@
                 <label for="photo-file" id="file-label">Choose a file</label>
                 <input type="file" name="photo-file" id="photo-file"">
                 <br><br>
-                <button type=" submit" class="btn">Upload Photo</button>
+                <button type=" submit" class="btn light-blue accent-3">Upload Photo</button>
             </form>
-            <h1>{{ profile.user.first_name }}'s Profile</h1>
-            <p>Primary Language: {{ profile.primary_language }}</p>
+            <p>Primary Language: {{ profile.get_primary_language_display }}</p>
         </div>
-        <div class="left-side">
+        <div class="right-side">
             <h2>Favorite Posts:</h2>
-            <div>
-                {% for post in profile.favorite_posts.all %}
-                <div>{{ post.phrase }}</li>
-                    {% empty %}
-                    <div>No favorite posts yet.</li>
-                        {% endfor %}
+            {% if profile.favorite_posts.all %}
+            {% for post in profile.favorite_posts.all %}
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <p>{{ post.phrase }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            {% else %}
+            <div>No favorite posts yet.</div>
+            {% endif %}
         </div>
-    </main>
+    </div>
+
 
 </body>
 
