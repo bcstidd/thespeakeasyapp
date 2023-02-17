@@ -117,6 +117,10 @@
     width: 100%;
 }
 
+.view-post-td {
+    text-align: center;
+}
+
 .form-group {
     display: flex;
     flex-direction: row;
