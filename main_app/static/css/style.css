@@ -297,5 +297,6 @@ nav a {
 
 .right {
   position: fixed;
-  bottom: 0
+  bottom: 0;
+  left: 0;
 }
