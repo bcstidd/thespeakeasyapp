@@ -18,7 +18,6 @@
   <header class="navbar-fixed">
     <div class="nav-wrapper"></div>
     <nav>
-      <a href="/">About</a>
       <a href="/translate">Quick Translate</a>
       <a href="{% url 'about' %}"> About</a>
       {% if user.is_authenticated %}
@@ -31,7 +30,6 @@
       <a href="{% url 'signup' %}" style=>Sign Up</a>
       <a href="{% url 'login' %}" style=>Log In</a>
       {% endif %}
-      
     </nav>
   </header>
   
@@ -45,5 +43,4 @@
     <div class="right">All Rights Reserved, &copy; 2023 SpeakEasy LLC&nbsp;</div>
   </footer>
 </body>
-
 </html>
