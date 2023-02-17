@@ -5,6 +5,7 @@
 }
 
 body {
+  position: relative;
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -23,11 +24,12 @@ main {
 
 footer.page-footer {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   color: white;
   background-color: #2D6373;
   margin-bottom: -5px;
-  position: sticky
+  position: sticky;
 }
 
 footer.page-footer img {
@@ -37,6 +39,7 @@ footer.page-footer img {
 header.img {
   margin: 0 auto;
   width: 100%;
+  position: fixed;
 }
 
 h1 {
@@ -74,23 +77,21 @@ nav {
 }
 
 .carousel-inner {
-  width: 50%;
-  max-height: 400px;
-}
-
-.carousel-inner {
   max-width: 85%;
   max-height: 400px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
 }
 
 .carousel-item img {
   width: 100%;
   background-color: #FFAE2C;
   border: 2px solid black;
+  border-radius: 5px;
 }
 
 #home-body {
-  background-color: #FFAE2C;
+  background-image: linear-gradient(to bottom, #FCC771, #FB8500);
 }
 
 .container {
@@ -98,6 +99,19 @@ nav {
   justify-content: space-evenly;
   align-items: center;
   background-color: #2D6373;
+}
+
+input.btn:hover {
+  background: #285f8f;
+  color: #fff;
+}
+
+
+input.btn {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-left: 5px;
+  padding: 3px;
 }
 
 .log {
@@ -136,9 +150,9 @@ p {
   margin-top: 10px;
 }
 
-label {
+/* label {
   margin: 10px;
-}
+} */
 
 #_username {
   margin: 10px;
@@ -147,18 +161,20 @@ label {
 .icon {
   display: flex;
   justify-self: flex-end;
-
+  position: fixed;
 }
 
 .sign {
   display: flex;
   justify-content: center;
-  height: 510px;
+  height: 550px;
   margin: 0px 500px 0px 50px;
   min-width: 400px;
   max-width: 700px;
   border: 2px solid white;
+  border-radius: 10px;
   margin-bottom: none;
+  background-image: linear-gradient(to bottom, #FCC771, #FB8500);
 }
 
 .sign>form {
@@ -172,7 +188,7 @@ label {
 }
 
 .sign>form>ul {
-  background-color: #2D6373;
+  
   margin: 10px 0px 0px 50px;
 }
 
@@ -206,10 +222,13 @@ label {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .fa {
   font-size: 13px;
   color: #FCC771
 =======
+=======
+>>>>>>> main
 .card {
   background-color: #fff;
   border-radius: 10px;
@@ -220,6 +239,9 @@ label {
   justify-content: space-between;
   overflow: hidden;
   width: 300px;
+<<<<<<< HEAD
+>>>>>>> main
+=======
 >>>>>>> main
 }
 
@@ -250,6 +272,7 @@ label {
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 20px;
+
 }
 
 .card-footer {
@@ -278,6 +301,7 @@ label {
 }
 
 nav {
+  position: relative;
   display: flex;
   justify-content: space-evenly;
   width: 100%;
@@ -292,6 +316,9 @@ nav a {
   margin: 5px 50px 0px 50px
 }
 
-.right {
-  align-self: flex-end;
+footer, .right {
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }
+

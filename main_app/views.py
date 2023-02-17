@@ -37,7 +37,7 @@ class PostList(ListView):
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['phrase', 'country_of_origin',
-              'native_language', 'date']
+              'native_language']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -77,7 +77,7 @@ class PostDetail(LoginRequiredMixin, DetailView):
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['phrase', 'country_of_origin', 'native_language', 'date']
+    fields = ['phrase', 'country_of_origin', 'native_language']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
