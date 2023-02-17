@@ -19,9 +19,9 @@ With SpeakEasy, you can create a profile page to save your favorite posts and tr
 
 ![home](main_app/static/images/home.png)
 
-![add-phrase](main_app/static/images/add-phrases.png)
+![add-phrase](main_app/static/images/add-phrase.png)
 
-![details page](main_app/static/images/detail.png)
+![details page](main_app/static/images/detail-page.png)
 
 
 ![translation](main_app/static/images/translate.jpeg)
