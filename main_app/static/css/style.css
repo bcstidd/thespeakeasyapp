@@ -221,6 +221,14 @@ p {
   width: fit-content;
 }
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+.fa {
+  font-size: 13px;
+  color: #FCC771
+=======
+=======
+>>>>>>> main
 .card {
   background-color: #fff;
   border-radius: 10px;
@@ -231,6 +239,10 @@ p {
   justify-content: space-between;
   overflow: hidden;
   width: 300px;
+<<<<<<< HEAD
+>>>>>>> main
+=======
+>>>>>>> main
 }
 
 .card-image {
