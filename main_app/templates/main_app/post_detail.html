@@ -49,10 +49,10 @@
             <tbody>
               {% for comment in post.comment_set.all %}
               <tr>
-                <td>{{comment.language}}</td>
-                <td>{{comment.comment}}</td>
-                <td>{{comment.user.username}}</td>
-                <td>{{comment.date|date:"m/d/y"}}</td>
+                <td class='view-post-td'>{{comment.language}}</td>
+                <td class='view-post-td'>{{comment.comment}}</td>
+                <td class='view-post-td'>{{comment.user.username}}</td>
+                <td class='view-post-td'>{{comment.date|date:"m/d/y"}}</td>
               </tr>
               {% endfor %}
             </tbody>

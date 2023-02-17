@@ -36,10 +36,8 @@ class PostList(ListView):
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
-    user_model = User
-
     fields = ['phrase', 'country_of_origin',
-              'native_language']
+              'native_language', 'date']
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -47,16 +45,9 @@ class PostCreate(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['user'] = self.request.user
         if self.request.user.is_authenticated:
             context['profile_id'] = self.request.user.profile.id
         return context
-
-    def get_initial(self):
-        initial = super().get_initial()
-        profile = self.request.user.profile
-        # initial['native_language'] = self.request.user.profile.primary_language
-        return initial
 
 class PostDetail(LoginRequiredMixin, DetailView):
     model = Post
@@ -86,7 +77,7 @@ class PostDetail(LoginRequiredMixin, DetailView):
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['phrase', 'country_of_origin', 'native_language']
+    fields = ['phrase', 'country_of_origin', 'native_language', 'date']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
