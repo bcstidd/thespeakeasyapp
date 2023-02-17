@@ -31,23 +31,6 @@
       
       
       <div class="post-comment-details">
-        <div class="view-comments">
-          <table class="comment-table">
-            <thead>
-              <tr><th>Language</th><th>Comment</th><th>User</th><th>Date</th></tr>
-            </thead>
-            <tbody>
-              {% for comment in post.comment_set.all %}
-              <tr>
-                <td>{{comment.language}}</td>
-                <td>{{comment.comment}}</td>
-                <td>{{comment.user.username}}</td>
-                <td>{{comment.date|date:"m/d/y"}}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
         <div class="create-comments">
           <form action="" method="post">
             {% csrf_token %}
@@ -58,6 +41,24 @@
             </div>
           </form>
         </div>
+        <div class="view-comments">
+          <table class="comment-table">
+            <thead>
+              <tr><th>Language</th><th>Comment</th><th>User</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+              {% for comment in post.comment_set.all %}
+              <tr>
+                <td class='view-post-td'>{{comment.language}}</td>
+                <td class='view-post-td'>{{comment.comment}}</td>
+                <td class='view-post-td'>{{comment.user.username}}</td>
+                <td class='view-post-td'>{{comment.date|date:"m/d/y"}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
      </div>
 
     </div>
