@@ -13,14 +13,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(to bottom, #e5e5e5, #f5f5f5);
+    background-image: linear-gradient(to bottom, #225943, #2e7d32);    
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
     padding: 20px;
     padding-bottom: 2px;
     margin-bottom: 20px;
     height: 50%;
-    width: 50%;
+    width: 70%;
 }
 
 .poster-info {
@@ -36,7 +36,7 @@
     justify-content: space-evenly;
     align-items: center;
     font-size: 18px;
-    color: #333;
+    color: #eee;
     width: 100%;
     height: 100%;
     text-align: center;
@@ -47,9 +47,14 @@
     justify-content: center;
     align-items: center;
     height: 90%;
-    width: 100%;
+    width: 80%;
     font-size: 30px;
+    padding: 10px;
+    margin: 15px;
     color: darkblue;
+    background-image: linear-gradient(to bottom, #e5e5e5, #f5f5f5);
+    box-shadow: 2px 2px 5px black;
+    border-radius: 4px;
 }
 
 .post-card-title {
@@ -81,7 +86,7 @@
 
 .poster-origin {
     display: flex;
-    color: darkorchid;
+    color: #ccc;
     flex-direction: row;
     justify-content: center;
     width: 100%;
@@ -97,6 +102,7 @@
     box-shadow: 2px 2px 5px black;
     border-radius: 10px;
     padding: 5px;
+    width: 70%;
 }
 
 #id_comment {
@@ -114,11 +120,12 @@
 .form-group {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .form-group>.comment-language-input {
-    margin: 2px;
+    margin: 4px;
 }
 
 .comment-textarea {
@@ -127,5 +134,80 @@
 
 .form-group>input {
     height: 80%;
-    margin: 2px;
+    margin: 4px;
+}
+
+.poster-info-add-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.make-post-title {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.post-card-details-add-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: solid black;
+    width: 100%;
+    height: 90vh;
+    padding: 2px;
+}
+
+.add-post-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: radial-gradient(ellipse at center, #a8a8a8, #454545);
+    box-shadow: 2px 2px 5px black;
+    border-radius: 10px;
+    padding: 20px;
+    padding-bottom: 2px;
+    margin-bottom: 20px;
+    height: 50%;
+    width: 50%;
+}
+
+.add-post-form {
+    width: 100%;
+    height: 100%;
+}
+
+.add-post-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 0px 10px 0px;
+    width: 10%;
+}
+
+.add-full-width {
+    width: 100%;
+    height: 80%;
+}
+
+.add-phrase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 100%;
+    font-size: 30px;
+    color: darkblue;
+}
+
+.post-form {
+    height: 100%;
+}
+
+.post-non-phrase-inputs {
+    display: flex;
+    justify-content: space-between;
 }
