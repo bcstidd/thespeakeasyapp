@@ -34,7 +34,8 @@
       <nav>
         <div class="nav-wrapper">
           <a href="{% url 'about' %}" >About</a>
-          
+          <a href="/translate">Quick Translate</a>
+
             {% if user.is_authenticated %}
             <a href="/profiles/{{profile_id}}">Profile</a>
             <a href="{% url 'posts_create' %}">Add A Post</a>
