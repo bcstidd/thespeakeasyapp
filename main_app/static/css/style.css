@@ -252,16 +252,14 @@ label {
   text-decoration: none;
 }
 
-h1.postname>a {
-  color: red;
-}
-
 .post_list {
   display: flex;
   flex-direction: column;
+  column-gap: 3px;
   justify-content: center;
+  column-count: 2;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap:wrap;
 }
 
 nav {
