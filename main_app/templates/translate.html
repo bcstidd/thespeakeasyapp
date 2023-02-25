@@ -9,57 +9,57 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
-        nav {
-            background-color: #D4AF37; /* Orange gold color */
-        }
-        .card {
-            background-color: #D4AF37; /* Orange gold color */
-            margin: auto;
-            margin-top: 50px;
-            max-width: 500px;
-            padding: 20px;
-        }
-    </style>
 </head>
 <body>
     <nav>
-        <div class="nav-wrapper orange darken-3">
-            <a href="#" class="brand-logo center">SpeakEasy Translation Tool</a>
+        <div class="nav-wrapper blue">
+            <a href="#" class="brand-logo center">Translation Tool</a>
         </div>
     </nav>
-    <div class="card">
-        <form class="row" action="{% url 'translate' %}" method="get">
-            <div class="input-field col s12">
-                <input id="text" type="text" class="validate" name="text">
-                <label for="text">Enter text to translate:</label>
-            </div>
-            <div class="input-field col s12">
-                <select id="source" name="source">
-                    {% for code, name in languages.items %}
-                    <option value="{{ code }}">{{ name }}</option>
-                    {% endfor %}
-                </select>
-                <label for="source">Select source language:</label>
-            </div>
-            <div class="input-field col s12">
-                <select id="destination" name="destination">
-                    {% for code, name in languages.items %}
-                    <option value="{{ code }}">{{ name }}</option>
-                    {% endfor %}
-                </select>
-                <label for="destination">Select destination language:</label>
-            </div>
-            <div class="col s12">
-                <button class="btn waves-effect waves-light orange darken-3" type="submit" name="action">Translate
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-        </form>
+    <div class="container">
+        <div class="row">
+            <form class="col s12" action="{% url 'translate' %}" method="get">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="text" type="text" class="validate" name="text" value="{{ text }}">
+                        <label for="text">Enter text to translate:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="source" name="source">
+                            {% for code, name in languages.items %}
+                            <option value="{{ code }}" {% if code == detected_language %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="source">Select source language:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="destination" name="destination">
+                            {% for code, name in languages.items %}
+                            <option value="{{ code }}" {% if code == destination_language %}selected{% endif %}>{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="destination">Select destination language:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button class="btn waves-effect waves-light blue" type="submit" name="action">Translate
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
         {% if translation %}
         <div class="row">
             <h2 class="col s12">Translation:</h2>
             <p class="col s12">{{ translation.text }}</p>
+            <p class="col s12">Source language: {{ translation.src }}</p>
+            <p class="col s12">Destination language: {{ translation.dest }}</p>
         </div>
         {% endif %}
     </div>
