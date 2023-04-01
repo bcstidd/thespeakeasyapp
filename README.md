@@ -35,6 +35,7 @@ With SpeakEasy, you can create a profile page to save your favorite posts and tr
 ---
 ## Technologies Used:
 
+* Google Translate API 
 * Python
 * Django
 * PostgreSQL
@@ -42,7 +43,6 @@ With SpeakEasy, you can create a profile page to save your favorite posts and tr
 * CSS3
 * Bootstrap
 * Boto3
-* Google Translate API (not currently functional)
 
 
 
