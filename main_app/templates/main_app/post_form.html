@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="post-card-details-add-post">
+  <div class="add-post-details">
+    <div class="post-card-content">
+      <div class="poster-info-add-post">
+        <div class="add-phrase">
+          <div class="make-post-title">
+          {% if object %}
+          <h1>Hey {{ user.first_name}}, what should we edit?<span class="teal-text">{{object.name}}</span></h1>
+          {% else %}
+          <h1>Hey {{ user.first_name}}, what phrase should we translate?</h1>
+          {% endif %}
+        </div>
+      </div>
+      <div class="add-post-form">
+        <form class="post-form" action="" method="post">
+          {% csrf_token %}
+          <textarea class="add-full-width" name="{{ form.phrase.name }}"></textarea>
+          <div class="post-non-phrase-inputs">
+          <input type="text" name="{{ form.native_language.name }}" placeholder="Native Language" value="{{ form.native_language.value|default:'' }}">
+          <input type="text" name="{{ form.country_of_origin.name }}" placeholder="Home Country" value="{{ form.country_of_origin.value|default:'' }}">
+          <input type="submit" value="Submit!" class="btn" />
+        </div>
+        </form>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="post-card-details">
+
+      <div class="post-details">
+        <div class="post-card-content">
+          <div class="poster-info">
+            <div class="poster-name">
+              {{ post.user.first_name }} {{ post.user.last_name }} {{ post.user.profile.flag }}
+            </div>
+            <div class="post-time">
+              {{ post.date|date:"h:i A T, F jS, Y" }}
+            </div>
+          </div>
+            <div class="phrase">
+              <span class="post-card-title">{{ post.phrase }}</span>
+            </div>
+            <div class="poster-origin">
+              {{ post.native_language }} ||
+              {{ post.country_of_origin }}
+            </div>
+            <div class="post-card-action">
+                <a href="{% url 'posts_update' post.id %}">✏️</a>
+                <a href="{% url 'posts_delete' post.id %}">🗑</a>
+                <a href="{% url 'add_favs' post.id profile_id %}">❤️</a>
+              </div>
+          </div>
+        </div>
+      
+      
+      <div class="post-comment-details">
+        <div class="create-comments">
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <div class="comment-language-input">{{ form.language }} </div>
+              <div class="comment-textarea">{{ form.comment }} </div>
+              <input type="submit" value="Submit!" class="btn">
+            </div>
+          </form>
+        </div>
+        <div class="view-comments">
+          <table class="comment-table">
+            <thead>
+              <tr><th>Language</th><th>Comment</th><th>User</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+              {% for comment in post.comment_set.all %}
+              <tr>
+                <td class='view-post-td'>{{comment.language}}</td>
+                <td class='view-post-td'>{{comment.comment}}</td>
+                <td class='view-post-td'>{{comment.user.username}}</td>
+                <td class='view-post-td'>{{comment.date|date:"m/d/y"}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+     </div>
+
+    </div>
+
+{% endblock %}

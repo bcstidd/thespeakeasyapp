@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<img src="../../static/images/solologo.png">
+<div class="sign">
+<form method="POST" action="{% url 'signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" class="btn" value="Sign Up">
+</form>
+{% endblock %}
+</div>

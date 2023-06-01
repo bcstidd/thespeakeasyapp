@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SpeakEasy</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style-charles.css' %}">
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+
+<body>
+  <header class="navbar-fixed">
+    <div class="nav-wrapper"></div>
+    <nav>
+      <a href="/translate">Quick Translate</a>
+      <a href="{% url 'about' %}"> About</a>
+      {% if user.is_authenticated %}
+      <a href="/profiles/{{profile_id}}">Profile</a>
+      <a href="{% url 'posts_create' %}">Add A Post</a>
+      <a href="{% url 'index' %}">View Posts</a>
+      <a href="{% url 'logout' %}">Log Out</a>
+      <a href="{% url 'home' %}">Home</a>
+      {% else %}
+      <a href="{% url 'signup' %}" style=>Sign Up</a>
+      <a href="{% url 'login' %}" style=>Log In</a>
+      {% endif %}
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> main
+    </nav>
+  </header>
+
+  <main class="container">
+    {% block content %}
+
+    {% endblock %}
+  </main>
+  <footer class="page-footer">
+    <a href="/"><img src="{% static 'images/icon3.png' %}" alt="icon"></a>   
+    <div class="right">All Rights Reserved, &copy; 2023 SpeakEasy LLC&nbsp;</div>
+  </footer>
+</body>
+
+</html>
